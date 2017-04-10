@@ -1,0 +1,45 @@
+@charset "utf-8";
+/* CSS Document */
+.deLeft{ width:1265px; }
+.btnBack{ display:inline-block; width:180px; height:40px; margin:10px 0 15px; line-height:40px; font-size:16px; color:#fff; text-indent:35px; background:#5398d3 url(../img/ico.png) no-repeat 0 -436px;}
+.devName{ display:inline-block; width:220px; height:40px; margin:10px 0 15px; line-height:40px; font-size:16px;}
+.devName label{ color:#666; margin-left:10px;}
+.devName span{ color:#005AAA; }
+.screening{ width:160px; background:#fff; height:570px; padding:10px;}
+.screening h3{ font-size:14px;  font-weight:normal; color:#666; line-height:40px;} 
+.screening p a{font-size:14px;  line-height:40px; display:block; color:#333;}
+.screening p a i{ margin-right:8px;}
+.m_line{ font-size:0; border-bottom:1px solid #dddddd; margin:10px 0;}
+
+.detailLeft{ width:620px;}
+.detailRight{ width:620px; margin-left:10px;}
+
+.moduleShow .Table th{ height:30px; line-height:28px;  padding:0 0 0 5px;}
+.moduleShow .Table td{ height:30px; line-height:28px; padding:0 0 0 5px;}
+
+.monitorImg{ position:relative; height:540px; overflow:hidden;}
+.monitorImg a{ position:absolute;}
+.monitorImg .prev{ left:10px; top:160px; height:200px; width:40px; background:url(../img/prev.png) no-repeat;}
+.monitorImg .next{ right:10px; top:160px; height:200px; width:40px;  background:url(../img/next.png) no-repeat;}
+.monitorImg p{ width:970px; height:520px; margin:10px auto; text-align:center; background:#fff; border:1px solid #d2d2d2;}
+.monitorImg p img{ width:970px; height:520px; vertical-align:middle; border:0;}
+.num{ text-align:center; height:30px; line-height:30px; clear:both; color:#666;}
+.num em{ color:#005AAA;}
+
+.disk .gayColumn{width:150px; height:25px; background: #ccc;}
+.disk .gayColumn i{line-height:25px;}
+.disk .blueColumn{height:25px;}
+.disk .greenColumn{height:25px;}
+.disk .smallText{font-size:13px;}
+
+.capInfo{  margin:15px 0 15px; background:#ffffff; border:1px solid #ddd; overflow:hidden; width:1250px; height:130px; }
+.capInfo .basicInfo{ width:400px; float:left;}
+.capInfo h4{ float:left; color:#005aaa; font-size:20px; line-height:35px; height:35px; margin:10px 0 0 30px; width:330px;}
+.capInfo .basicInfo p{ height:24px; line-height:24px; margin:0 0 0 30px; color:#999; display:block; clear:both; }
+.capInfo .stateInfo{ float:left; width:800px; margin-left:10px; padding-top:10px;}
+.capInfo .stateInfo  ul li{ float:left; width:350px; height:30px; line-height:30px; margin-right:20px;}
+.capInfo .stateInfo  ul .block{ display:block; float:none;}
+.capInfo .stateInfo  ul li b{ font-weight:normal;}
+.capInfo .stateInfo  ul li label{ color:#999; }
+.capInfo .stateInfo  ul li span{ color:#333; }
+.capInfo .stateInfo  ul li em{ color:#999; margin-left:5px;}

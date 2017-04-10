@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* CSS Document */
+.indexbody{ background:#156daf;}
+.loginBox{ width:360px; margin:0 auto; overflow:hidden;}
+.loginBox .vs{ color:#fff; font-family:Arial, Helvetica, sans-serif; margin-top:202px; height:24px; line-height:24px; text-align:right; padding-right:30px;}
+.hna_logo{ position:absolute; display:block; top:20px; right:20px; width:170px; height:50px; background:url(../img/hna/logo.png) no-repeat;}
+.ca_logo{ position:absolute; display:block; top:20px; right:20px; width:170px; height:50px; background:url(../img/ca/logo.png) no-repeat;}
+.la_logo{ position:absolute; display:block; top:20px; right:20px; width:170px; height:50px; background:url(../img/la/logo.png) no-repeat;}
+.atg_logo{ position:absolute; display:block; top:20px; right:20px; width:170px; height:50px; background:url(../img/atg/logo.png) no-repeat;}
+.loginBox ul{ clear:both; margin:58px 0 0 24px; width:315px;}
+.loginBox .iptBox li{ height:50px; width:100%; border-radius:5px; background:#fff; position:relative;}
+.loginBox .iptBox li input{ border:0;  height:40px; line-height:40px; padding:5px; width:240px; margin-left:50px; color:#333; font-size:20px; display:block;}
+.loginBox .iptBox li span{ position:absolute; display:block; width:250px; height:50px; left:50px; top:0; line-height:50px; color:#bbbbbb; font-size:14px;}
+.loginBox .iptBox #iptUser{ margin-bottom:33px; background:#fff url(../img/ico.png) no-repeat 17px -80px;}
+.loginBox .iptBox #iptPassword{background:#fff url(../img/ico.png) no-repeat 17px -130px;}
+.altMessage{ color:#e4ff00; font-size:12px; line-height:22px; padding:10px; margin-left:24px; width:295px;}
+.chooseLang{float:left; width:140px; height:38px; background:#156daf; border:1px solid #156daf; color:#fff; font-size:12px; overflow:hidden; position:relative; margin:7px 0 0 30px;}
+.chooseLang a{ display:block; position:absolute; width:28px; height:38px;}
+.chooseLang .l{background:#2f89cd url(../img/ico.png) no-repeat -128px -199px; left:0; top:0;}
+.chooseLang .r{background:#2f89cd url(../img/ico.png) no-repeat -156px -199px; right:0; top:0}
+.chooseLang em{ height:19px; line-height:19px; margin:10px 0 0 32px; display:block; width:45px; padding-left:32px;}
+.userLogin{float:left; background:url(../img/ico.png) no-repeat 0 -180px;  width:122px; height:53px; border:0; padding:0; overflow:hidden; line-height:400px; margin:0 0 0 31px;}
+
+.cop{ color:#bbbbbb; font-size:12px; font-family:Arial, Helvetica, sans-serif; width:100%; text-align:center; line-height:24px; bottom:50px; left:0; position:absolute;}
+

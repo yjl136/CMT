@@ -1,0 +1,46 @@
+@charset "utf-8";
+/* CSS Document */
+*{margin:0;padding:0;}
+body{margin:0;padding:0;font-size:14px; font-family:微软雅黑,宋体;}
+div,form,img,ul,ol,li,dl,dt,dd,p,span,input{margin:0;padding:0;border:0;}
+li{list-style-type:none;}img{vertical-align:top;}
+h1,h2,h3,h4,h5,h6{margin:0;padding:0;}
+em{ font-style:normal;}
+textarea{resize:none;border:1px #CCC solid;padding:2px 5px;overflow-y:auto;}
+input,textarea{outline:none;background-color:white;}
+input[type="radio"]{vertical-align:text-bottom;background:transparent;border:0;}
+.right{float:right;display:inline;}
+.left{float:left;display:inline;}
+.clear{clear:both; height:0; line-height:0; font-size:0;}
+
+.uline{text-decoration:underline;}
+.hidden{display:none;}
+.visiHidden{visibility:hidden;}
+.text-left {text-align: left;}
+.text-center {text-align: center;}
+.text-right {text-align: right;}
+
+a{text-decoration:none;cursor:pointer;color:#3278DC;}
+a:hover{text-decoration:none;}
+a:focus{outline:none;}
+.fontRed{color:#C80032;}
+.fontBlue{color:#005aaa;}
+.fontGreen{color:#009632;}
+.fcgray{color:#999;}
+.fontLeft{text-align:left;}
+.fontRight{text-align:right;}
+.fontCenter{text-align:center;}
+.fontBold{font-weight:bold;}
+.text-grey {color: #9c9c9c;}
+.mtop15{ margin-top:15px;}
+.mtop10{ margin-top:10px;margin-right:20px;}
+.mtop20{ margin-top:20px;}
+.bottom10{ margin-bottom:10px;}
+.mLeft10{ margin-left:10px;}
+
+
+/*作用与设备页面的筛选按钮*/
+.btn-search{float: right;border: 1px solid #CCCCCC;margin: 20px 20px;background: #5398d3;width: 80px;height: 26px;border-radius: 3px;text-align: center;line-height: 26px;}
+.btn-search a{color: #FFFFFF;margin-right: 7px;}
+.btn-search a:hover{color: #f76d02;}
+.config_box li label{  display:inline-block;  width: 224px;}

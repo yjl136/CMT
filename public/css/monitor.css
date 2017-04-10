@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+.monitorCont{ overflow:hidden;}
+.monitorCont .page{ margin-right:15px;}
+.State{  margin:0 0 15px 15px; background:#ffffff; border:1px solid #ddd; overflow:hidden; width:615px; height:130px; }
+.State .img{ float:left; margin:15px 0 0 15px;   width:98px; height:98px; border:1px solid #e1e1e1;  border-radius:3px; -webkit-border-radius:3px;-moz-border-radius:3px; position:relative;}
+.State .img img{ vertical-align:middle; width:98px; height:98px; border-radius:3px; -webkit-border-radius:3px;-moz-border-radius:3px;}
+.State h4{ float:left; color:#005aaa; font-size:20px; line-height:35px; height:35px; margin:10px 0 0 30px; width:330px;}
+.State .boutState p{ height:24px; line-height:24px; margin:0 0 0 30px; color:#999; display:block; clear:both; }
+.State .img span{  position:absolute; top:3px; left:3px; }
+.ror .img span{ background:url(../img/ico.png) no-repeat 0 -40px; height:21px; width:20px; display:inline-block; }
+.unline .img span{background:url(../img/ico.png) no-repeat -20px -40px; height:22px; width:21px; display:inline-block; }
+.unline .img img{ filter:alpha(opacity=50); -moz-opacity:0.5;   -khtml-opacity: 0.5; opacity: 0.5;  }
+
+.State .boutState{ width:475px; float:left;}
+
+.State .StateImg{ float:left; width:590px; margin-left:10px; padding-top:10px;}
+.State .StateImg  ul li{ float:left;  height:30px; line-height:30px; margin:0 20px 10px 0;}
+.State .StateImg  ul .block{ display:block; float:none;}
+.State .StateImg  ul li b{ font-weight:normal;}
+.State .StateImg  ul li label{ color:#333; }
+.State .StateImg  ul li em{ color:#999; margin-left:5px;}
+.gayColumn{ display:inline-block; background:#ededed; width:200px; position:relative;}
+.gayColumn i{ position:absolute; left:10px; top:0; color:#333; font-style:normal;}
+.redColumn { display:inline-block; background:#ff0000; color:#fff; text-align:right; }
+.blueColumn { display:inline-block; background:#69c1ff; color:#fff; text-align:right; }
+.greenColumn { display:inline-block; background:#39e14d; color:#fff; text-align:right;}
+
+.dev-offline-msg {color: #C80032; width:360px; text-align: center; line-height:30px; height:80px; margin-top:20px; padding:0 20px;}

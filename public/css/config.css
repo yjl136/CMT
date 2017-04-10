@@ -1,0 +1,24 @@
+@CHARSET "UTF-8";
+.note{ margin:0 15px 15px 15px; background:#ffffff; border:1px solid #ddd; overflow:hidden; height:150px; }
+.note p{ height:80px; text-indent: 2em; }
+.note .center{ text-align: center; }
+
+.mailcontent{}
+.mailcontent pre{font-family: 微软雅黑,宋体;font-size:14px;overflow:hidden;line-height:25px;padding-top:10px;}
+
+#volume_container li a{ margin-right:0}
+#volume_container h3{ font-size:16px; color:#333; line-height:42px; font-weight:normal; margin-top:10px;}
+#volume_container li{ overflow:hidden;}
+#volume_container li label{ width:120px; float:left;}
+#volume_container li input{ display:inline-block;}
+#volume_container li input{ display:inline-block;}
+#volume_container li .Buton ,#volume_container li .ButonUn{ margin-left:10px;}
+.volume_box{ display:inline-block; width:330px; height:40px; vertical-align:middle;}
+.volume_box .bg{ display:block; height:10px; margin-top:15px; background:#ededed;}
+.volume_box .bg i{ display:block; height:10px; background:#69c1ff;}
+#volume_container li .icoVolume{ vertical-align:middle; margin-right:20px;}
+
+#volume_container .Screening{ margin:15px 0;}
+.volume_state{ width:200px; float:left; margin-top:11px; height:38px; background:#fff; color:#fff; border-radius:3px; -webkit-border-radius:3px;-moz-border-radius:3px; border:1px solid #ccc;}
+.volume_state a{ float:left; width:100px; line-height:38px; text-align:center; font-size:14px; color:#999; }
+.volume_state .on{border-radius:3px; -webkit-border-radius:3px;-moz-border-radius:3px; background:#5398D3; color:#fff;}

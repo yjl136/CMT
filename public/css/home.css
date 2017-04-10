@@ -1,0 +1,170 @@
+@charset "utf-8";
+/* CSS Document */
+.bodybox{ position:relative; overflow:hidden;}
+.body1{ overflow:hidden;}
+.body2{ overflow:hidden;}
+.bodybox .tab1{ position:absolute; display:block; width:30px; height:40px; background:#fff url(../img/ico.png) no-repeat 0 -681px; left:0; top:10px; border:1px solid #dddddd;  border-radius:0 5px 0 0; -webkit-border-radius:0 5px 0 0;-moz-border-radius:0 5px 0 0;}
+.bodybox .tab2{ position:absolute; display:block; width:30px; height:40px; background:#ddd url(../img/ico.png) no-repeat 0 -721px; left:0; top:50px; border:1px solid #dddddd;  border-radius:0 0 5px 0; -webkit-border-radius:0 0 5px 0;-moz-border-radius:0 0 5px 0;}
+
+.main .bodybox .tab1_{ background:#fff url(../img/ico.png) no-repeat -30px -681px; }
+.main .bodybox .tab2_{ background:#ddd url(../img/ico.png) no-repeat -30px -721px; }
+
+.li4box{ padding-left:5px;}
+.li4box .warpbox{ float:left; width:303px; }
+.homeTop{margin:0 0 10px 10px; }
+.homeTop .wpCont{ height:99px; overflow:hidden;}
+.homeTop .wpCont .wpcLeft{ float:left; width:99px; height:79px; border-right:1px solid #dddddd; margin-top:10px;}
+.homeTop .wpCont .wpcLeft i{ display:inline-block; width:42px; height:42px; margin: 18px 28px;}
+.homeTop .wpCont .wpcRight{ float:left; margin:19px 0 0 16px;}
+.homeTop .wpCont .wpcRight p{ line-height:30px; height:30px; color:#666;}
+
+
+.li1box .wpCont{ height:119px;}
+.li1box h3 span{ font-size:12px; color:#999999;}
+.wpTop .Refresh{ position:absolute; right:6px; top:6px;}
+.li1box{ margin:0 15px; }
+.li1box .State{ width:302px; margin:10px 0 10px 10px; float:left;  }
+.li1box .State a{ float:left; width:97px; height:97px; border:1px solid #e1e1e1;  border-radius:3px; -webkit-border-radius:3px;-moz-border-radius:3px; position:relative;}
+.li1box .State a img{ vertical-align:middle; border-radius:3px; -webkit-border-radius:3px;-moz-border-radius:3px;}
+.li1box .State h4{ float:left; color:#005aaa; font-size:20px; line-height:32px; height:32px; margin:2px 0 0 20px; width:150px;}
+.li1box .State p{ float:left; height:30px; line-height:30px; margin:0 0 0 20px; color:#666; width:150px;}
+.li1box .State a span{  position:absolute; top:3px; left:3px; }
+
+
+.unline a span{background:url(../img/ico.png) no-repeat -20px -40px; height:22px; width:21px; display:inline-block; }
+.unline a img{ filter:alpha(opacity=50); -moz-opacity:0.5;   -khtml-opacity: 0.5; opacity: 0.5;  }
+
+.li2box{ padding-left:43px;}
+.li2box h3 span{ font-size:12px; color:#999999;}
+.li2box .warpbox{ margin:0 10px 10px 0; }
+.flightData .wpCont{  overflow:hidden;}
+.flightData .wpCont .data{ overflow:hidden; }
+.flightData .wpCont .data ul{ overflow:hidden; width: 1210px; }
+.flightData .wpCont .data ul li{ width:301px; margin:0; float:left; height:101px; line-height:101px; padding:10px 0;  overflow:hidden;}
+.flightData .wpCont .data ul li i{width:50px; height:50px; overflow:hidden; display:inline-block; float:left; margin:25px 0 0 10px;}
+
+.flightData .wpCont .data ul li label{ font-size:16px; display:inline-block; width:60px; float:left; text-indent: 10px;}
+.flightData .wpCont .data ul li span{ font-size:16px; display:inline-block;  width:100px; text-align:right; float:left;}
+.flightData .wpCont .data ul li .dis{ color:#d2d2d2;}
+.flightData .wpCont .data ul li em{ color:#999999;margin-left:5px; float:left;}
+
+.flightData .wpCont p{ margin:68px 0 0 54px; float:left;}
+.flightData .wpCont p a{  width:100px; margin-bottom:25px;}
+#update_online{ line-height:20px; padding:0 20px;}
+
+.li2box .flowMonitoring .wpCont{ height:270px; overflow:hidden; text-align:center;}
+
+.flightData .wpCont .bottom{ clear:both; height:30px; padding:0 30px; margin:0 auto; }
+.flightData .wpCont .bottom .fTime{ float:left; height:20px; line-height:20px; margin-top:8px;  font-size:12px; color:#999;}
+.flightData .wpCont .bottom .fTime b{ font-size:16px; }
+.flightData .wpCont .bottom .mTime{ float:right; height:20px; line-height:20px; margin-top:8px; font-size:12px; color:#999999;  }
+
+.flytable{ width:280px; display:inline-table; margin:4px 13px; }
+.flytable .disline{ border-bottom:0;}
+.flytable .nb{ width:38px; text-align:center; color:#999;}
+.flytable .hig{ width:150px;}
+.flytable .feet{ color:#999;  text-align:right; padding-right:5px;}
+.flytable .feet span{ color:#555; margin-right:5px;}
+
+.deviceStatus .wpCont{ overflow:hidden;}
+.deviceStatus .wpCont ul{ overflow: hidden; padding-bottom: 15px;}
+.deviceStatus .wpCont li{  overflow:hidden;  float:left; margin:15px 0 0 15px; }
+.deviceStatus .wpCont li.li2{ width:303px;}
+.deviceStatus .wpCont li.li3{ width:203.5px;}
+.deviceStatus .wpCont li.li4{ width:151px;}
+.deviceStatus .wpCont li a{ display:block; position:relative; overflow:hidden;}
+.deviceStatus .wpCont li a img{ display:block;  width:128px; height:108px; margin: auto 0}
+.deviceStatus .wpCont li a span{ display:block; text-align:center; line-height:32px; font-size:20px;}
+.deviceStatus .wpCont li a i{ position:absolute; top:10px; left:10px;}
+
+.Summary .wpCont{ height:270px; overflow:hidden;}
+.dataRor{ float:left; width:300px; height:230px; margin:6px 0 0 6px;}
+.dataRor h4{ height:40px;  line-height:40px; color:#666666; font-weight:normal; font-size:16px; margin-left:24px;}
+.ApOnline{ float:left; width:240px; height:196px; margin-top:40px;}
+.rorList{ clear:both; line-height:32px; height:32px; overflow:hidden; margin-left:30px;}
+.rorList a{ color:#666; display:block; line-height:32px; height:32px;}
+.rorList a b{ color:#d83515;}
+.rorList a em{ font-size:12px; color:#999;}
+.rorList a span{ margin-right:8px;}
+.ApOnline{ margin-left:27px;}
+.lineBox{ height:25px; margin-bottom:25px; position:relative; }
+.lineBox span{ float:left; background:#dddddd; width:200px; height:25px; line-height:25px;}
+.lineBox b{ position:absolute; left:0; top:0; height:25px; line-height:25px; background:#005aaa; color:#fff; text-align:right;}
+.lineBox em{ color:#333333; font-size:14px; line-height:25px; float:left; margin-left:10px;}
+.ApOnline h4{ color:#005aaa; font-size:14px; line-height:26px; margin-bottom:10px; font-weight:normal;}
+.ApOnline .apLine{ line-height:26px;  margin-bottom:17px;}
+.ApOnline .apLine i{ vertical-align:middle; margin-left:10px;}
+.ApOnline .apLine label{ color:#005aaa; margin-left:17px; font-size:14px;} 
+.ApOnline .apLine span{ font-size:24px; color:#005aaa; margin:0 10px;}
+.ApOnline .apLine em{ color:#333;}
+
+.airLayout .atg{background:url(../img/atg/topo/airplane_bg.png) no-repeat; width:1180px; height:550px; margin: 20px auto; position:relative;}
+.airLayout .atg .server{ z-index:1; background:url(../img/atg/topo/server.png) no-repeat; width:80px; height:218px; left:57px; top:80px; }
+.airLayout .atg .cap-1{ z-index:4; background:url(../img/atg/topo/cap1.png) no-repeat; width:131px; height:255px; left:116px; top:270px;}
+.airLayout .atg .cap-2{ z-index:5; background:url(../img/atg/topo/cap2.png) no-repeat; width:80px; height:206px; left:422px; top:80px;}
+.airLayout .atg .cap-3{ z-index:6; background:url(../img/atg/topo/cap3.png) no-repeat; width:150px; height:188px; left:810px; top:270px;}
+.airLayout .atg .cpe{ z-index:3; background:url(../img/atg/topo/cpe.png) no-repeat; width:193px; height:209px; left:167px; top:270px;}
+
+.airLayout .atg .server_{ z-index:1; background:url(../img/atg/topo/server_.png) no-repeat; width:80px; height:218px; left:57px; top:80px; }
+.airLayout .atg .cap-1_{ z-index:4; background:url(../img/atg/topo/cap1_.png) no-repeat; width:131px; height:255px; left:116px; top:270px;}
+.airLayout .atg .cap-2_{ z-index:5; background:url(../img/atg/topo/cap2_.png) no-repeat; width:80px; height:206px; left:422px; top:80px;}
+.airLayout .atg .cap-3_{ z-index:6; background:url(../img/atg/topo/cap3_.png) no-repeat; width:150px; height:188px; left:810px; top:270px;}
+.airLayout .atg .cpe_{ z-index:3; background:url(../img/atg/topo/cpe_.png) no-repeat; width:193px; height:209px; left:167px; top:270px;}
+
+.airLayout .ca{background:url(../img/ca/topo/airplane_bg.png) no-repeat; width:1180px; height:550px; margin: 20px auto; position:relative;}
+.airLayout .ca .server{ z-index:1; background:url(../img/ca/topo/server.png) no-repeat; width:80px; height:218px; left:57px; top:80px; }
+.airLayout .ca .cap-1{ z-index:4; background:url(../img/ca/topo/cap1.png) no-repeat; width:131px; height:255px; left:116px; top:270px;}
+.airLayout .ca .cap-2{ z-index:5; background:url(../img/ca/topo/cap2.png) no-repeat; width:80px; height:206px; left:422px; top:80px;}
+.airLayout .ca .cap-3{ z-index:6; background:url(../img/ca/topo/cap3.png) no-repeat; width:150px; height:188px; left:810px; top:270px;}
+.airLayout .ca .cpe{ z-index:3; background:url(../img/ca/topo/cpe.png) no-repeat; width:193px; height:209px; left:167px; top:270px;}
+
+.airLayout .ca .server_{ z-index:1; background:url(../img/ca/topo/server_.png) no-repeat; width:80px; height:218px; left:57px; top:80px; }
+.airLayout .ca .cap-1_{ z-index:4; background:url(../img/ca/topo/cap1_.png) no-repeat; width:131px; height:255px; left:116px; top:270px;}
+.airLayout .ca .cap-2_{ z-index:5; background:url(../img/ca/topo/cap2_.png) no-repeat; width:80px; height:206px; left:422px; top:80px;}
+.airLayout .ca .cap-3_{ z-index:6; background:url(../img/ca/topo/cap3_.png) no-repeat; width:150px; height:188px; left:810px; top:270px;}
+.airLayout .ca .cpe_{ z-index:3; background:url(../img/ca/topo/cpe_.png) no-repeat; width:193px; height:209px; left:167px; top:270px;}
+
+.airLayout .hna{background:url(../img/hna/topo/airplane_bg.png) no-repeat; width:1180px; height:550px; margin: 20px auto; position:relative;}
+.airLayout .hna .server{ z-index:1; background:url(../img/hna/topo/server.png) no-repeat; width:80px; height:218px; left:57px; top:80px; }
+.airLayout .hna .cap-1{ z-index:4; background:url(../img/hna/topo/cap1.png) no-repeat; width:131px; height:255px; left:116px; top:270px;}
+.airLayout .hna .cap-2{ z-index:5; background:url(../img/hna/topo/cap2.png) no-repeat; width:80px; height:206px; left:422px; top:80px;}
+.airLayout .hna .cap-3{ z-index:6; background:url(../img/hna/topo/cap3.png) no-repeat; width:150px; height:188px; left:810px; top:270px;}
+.airLayout .hna .cpe{ z-index:3; background:url(../img/hna/topo/cpe.png) no-repeat; width:193px; height:209px; left:167px; top:270px;}
+
+.airLayout .hna .server_{ z-index:1; background:url(../img/hna/topo/server_.png) no-repeat; width:80px; height:218px; left:57px; top:80px; }
+.airLayout .hna .cap-1_{ z-index:4; background:url(../img/hna/topo/cap1_.png) no-repeat; width:131px; height:255px; left:116px; top:270px;}
+.airLayout .hna .cap-2_{ z-index:5; background:url(../img/hna/topo/cap2_.png) no-repeat; width:80px; height:206px; left:422px; top:80px;}
+.airLayout .hna .cap-3_{ z-index:6; background:url(../img/hna/topo/cap3_.png) no-repeat; width:150px; height:188px; left:810px; top:270px;}
+.airLayout .hna .cpe_{ z-index:3; background:url(../img/hna/topo/cpe_.png) no-repeat; width:193px; height:209px; left:167px; top:270px;}
+
+.airLayout .la{background:url(../img/la/topo/airplane_bg.png) no-repeat; width:1180px; height:550px; margin: 20px auto; position:relative;}
+.airLayout .la .server{ z-index:1; background:url(../img/la/topo/server.png) no-repeat; width:80px; height:218px; left:57px; top:80px; }
+.airLayout .la .cap-1{ z-index:4; background:url(../img/la/topo/cap1.png) no-repeat; width:131px; height:255px; left:278px; top:268px;}
+.airLayout .la .cap-2{ z-index:5; background:url(../img/la/topo/cap2.png) no-repeat; width:80px; height:206px; left:370px; top:80px;}
+.airLayout .la .cap-3{ z-index:6; background:url(../img/la/topo/cap3.png) no-repeat; width:150px; height:188px; left:620px; top:270px;}
+.airLayout .la .cpe{ z-index:3; background:url(../img/la/topo/cpe.png) no-repeat; width:193px; height:209px; left:167px; top:270px;}
+
+.airLayout .la .server_{ z-index:1; background:url(../img/la/topo/server_.png) no-repeat; width:80px; height:218px; left:57px; top:80px; }
+.airLayout .la .cap-1_{ z-index:4; background:url(../img/la/topo/cap1_.png) no-repeat; width:131px; height:255px; left:278px; top:268px;}
+.airLayout .la .cap-2_{ z-index:5; background:url(../img/la/topo/cap2_.png) no-repeat; width:80px; height:206px; left:370px; top:80px;}
+.airLayout .la .cap-3_{ z-index:6; background:url(../img/la/topo/cap3_.png) no-repeat; width:150px; height:188px; left:620px; top:270px;}
+.airLayout .la .cpe_{ z-index:3; background:url(../img/la/topo/cpe_.png) no-repeat; width:193px; height:209px; left:167px; top:270px;}
+
+
+
+.airLayout .csa{background:url(../img/airplane/airplane_bg.png) no-repeat; width:1180px; height:550px; margin: 20px auto; position:relative;}
+.airLayout .csa .server{ z-index:1; background:url(../img/la/topo/server.png) no-repeat; width:80px; height:218px; left:20px; top:65px; }
+.airLayout .csa .cap-1{ z-index:4; background:url(../img/la/topo/cap1.png) no-repeat; width:131px; height:255px; left:166px; top:270px;}
+.airLayout .csa .cap-2{ z-index:5; background:url(../img/la/topo/cap2.png) no-repeat; width:80px; height:206px; left:422px; top:80px;}
+.airLayout .csa .cap-3{ z-index:6; background:url(../img/la/topo/cap3.png) no-repeat; width:150px; height:188px; left:730px; top:270px;}
+.airLayout .csa .cpe{ z-index:3; background:url(../img/la/topo/cpe.png) no-repeat; width:193px; height:209px; left:167px; top:270px;}
+
+.airLayout .csa .server_{ z-index:1; background:url(../img/la/topo/server_.png) no-repeat; width:80px; height:218px; left:20px; top:65px; }
+.airLayout .csa .cap-1_{ z-index:4; background:url(../img/la/topo/cap1_.png) no-repeat; width:131px; height:255px; left:166px; top:270px;}
+.airLayout .csa .cap-2_{ z-index:5; background:url(../img/la/topo/cap2_.png) no-repeat; width:80px; height:206px; left:422px; top:80px;}
+.airLayout .csa .cap-3_{ z-index:6; background:url(../img/la/topo/cap3_.png) no-repeat; width:150px; height:188px; left:730px; top:270px;}
+.airLayout .csa .cpe_{ z-index:3; background:url(../img/la/topo/cpe_.png) no-repeat; width:193px; height:209px; left:167px; top:270px;}
+
+.airLayout a{  position:absolute; display:block;}
+
+.dev-offline-msg {color: #CC0000; width:360px; text-align: center; line-height:80px; height:80px; margin-top:20px; padding:0 20px;}

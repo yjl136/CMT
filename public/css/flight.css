@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+.mflight .blockBox{ height:108px; margin-bottom:10px; overflow:hidden;}
+.mflight .blockBox .col_1{ float:left; height:88px; border-right:1px solid #dedede; margin-top:10px; width:220px; padding:0 10px;  font-size:18px; color:#999999; line-height:88px; text-align:center;}
+.mflight .blockBox .col_1 b{ color:#005aaa;}
+.mflight .blockBox .col_2{ float:left; height:88px; border-right:1px solid #dedede; margin-top:10px; width:580px; font-size:18px;}
+.mflight .blockBox .col_2 p{ margin:0 40px;}
+.mflight .blockBox .col_2 p span{ display:inline-block; width:130px;}
+.mflight .blockBox .col_2  .city{ margin-top:12px;}
+.mflight .blockBox .col_2  .city span{ color:#005aaa; font-size:18px; line-height:34px;}
+.mflight .blockBox .col_2  .city i{background:url(../img/line_right.png) no-repeat center center; height:17px; }
+.mflight .blockBox .col_2  .city .r,.mflight .blockBox .col_2  .time .r{ text-align:right;}
+.mflight .blockBox .col_2  .time span{ color:#666666; font-size:14px; line-height:32px; }
+
+.mflight .blockBox .col_2 p i{ display:inline-block; width:210px; margin:0 10px;}
+.mflight .blockBox .col_3{ float:left; height:88px; margin-top:10px;}
+.mflight .blockBox .col_3 .aboutXq{ margin:22px 40px; }
+
+.plane{width:310px; height:310px;}
+.plane img{width:284px; height:130px;}

@@ -1,0 +1,191 @@
+@charset "utf-8";
+/* CSS Document */
+blockquote,body,button,dd,dl,dt,fieldset,figure,form,h1,h2,h3,h4,h5,h6,input,legend,li,ol,p,pre,select,td,textarea,th,ul{margin:0;padding:0;-moz-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;font-family:Verdana,"Lantinghei SC","Hiragino Sans GB","Microsoft Yahei",Helvetica,arial,\5b8b\4f53,sans-serif}
+a,dd,div,dl,i,img,input,li,p,span,ul{box-sizing:border-box;-moz-box-sizing:border-box;-moz-box-sizing:border-box}
+.w1280{ width:1280px; margin:0; background:#222a32;}
+.hidden { display:none; }
+li{ list-style:none;}
+.welcome_a{background:url(../images/welcome_a.jpg); height:550px;}
+.welcome_b{background:url(../images/welcome_b.jpg); height:250px; overflow:hidden;}
+.welcome_b .tex{ font-size:48px; color:#fff; line-height:120px; margin-top:40px; text-align:center;letter-spacing:16px;}
+
+.menu{ height:80px; background:#23252b; position:relative;}
+.menu .logo{ position:absolute; left:0; top:0; width:180px; height:80px;background:url(../images/logo.png); }
+.menu .logo_en{ position:absolute; left:0; top:0; width:180px; height:80px;background:url(../images/logo_en.png); }
+.menu .user{ position:absolute; right:20px; top:5px; color:#8ea1b3;}
+.menu .user a{ display:block; color:#8ea1b3; font-size:14px; text-decoration:none;}
+.menu .user a i{ width:22px; height:22px; display:block;  background:url(../images/ico.png) no-repeat -38px -359px; margin:10px auto}
+.menu .user .ck i{ background:url(../images/ico.png) no-repeat -65px -359px;}
+.menu .user .ck{  color:#ddd;}
+.menu .tab{ margin-left:200px; height:80px;}
+.menu .tab li{ float:left; width:100px; height:80px; line-height:77px; text-align:center; margin:0; }
+.menu .tab li a{ font-size:18px; color:#8ea1b3; text-decoration:none; display:block; width:100px; height:77px; }
+.menu .tab .ck{ border-bottom:3px solid #27d4f3;}
+.menu .tab .ck a{ color:#fff;}
+
+.detection{ height:450px; background:url(../images/home_bg.jpg); overflow:hidden; position:relative;}
+.detection .cont{ width:890px; height:200px; position:absolute; left:140px; top:90px;}
+.detection .cont .ico{ float:left; width:197px; height:197px; position:relative;}
+
+/*@-webkit-keyframes rotate{
+from{-webkit-transform:rotate(0deg)}
+to{-webkit-transform:rotate(360deg)}
+}
+@-moz-keyframes rotate{
+from{-moz-transform:rotate(0deg)}
+to{-moz-transform:rotate(360deg)}
+}
+@-ms-keyframes rotate{
+from{-ms-transform:rotate(0deg)}
+to{-ms-transform:rotate(360deg)}
+}
+@-o-keyframes rotate{
+from{-o-transform:rotate(0deg)}
+to{-o-transform:rotate(360deg)}
+}
+*/
+.detection .loading .ico p{  width:197px; height:197px; background:url(../images/loading.gif) no-repeat 0 0; position:absolute; left:0; top:0; z-index:0;
+/*animation: 2s linear 0s normal none infinite rotate;
+-webkit-animation:2s linear 0s normal none infinite rotate;*/
+}
+.detection .loading .ico i span{ color:#ffffff; font-size:65px; line-height:147px; font-family:"BankGothic Lt BT"; font-weight:normal; font-style:normal;}
+.detection .loading .ico i em{ color:#ffffff; font-size:30px; line-height:147px; font-family:"BankGothic Lt BT"; font-weight:normal; font-style:normal;}
+.detection .ror .ico i em,
+.detection .ror .ico i span,
+.detection .ok .ico i em,
+.detection .ok .ico i span,
+.detection .warn .ico i em,
+.detection .warn .ico i span{ display:none;}
+
+
+.detection .loading .ico i{ width:147px; height:147px; display:block; background:url(../images/ico.png) no-repeat 0 -212px; color:#fff; position:absolute; top:25px; left:25px; z-index:1; text-align:center; font-family:"BankGothic Lt BT"; font-weight:normal;}
+
+.detection .ok .ico p{  width:197px; height:197px; background:url(../images/ld.png) no-repeat 0 0; position:absolute; left:0; top:0; z-index:0;
+}
+.detection .ok .ico i{ width:147px; height:147px; display:block; background:url(../images/ico.png) no-repeat -147px -212px; color:#fff; position:absolute; top:25px; left:25px; z-index:1;}
+
+.detection .ror .ico p{  width:197px; height:197px; background:url(../images/ld.png) no-repeat 0 0; position:absolute; left:0; top:0; z-index:0;
+}
+.detection .ror .ico i{ width:147px; height:147px; display:block; background:url(../images/ico.png) no-repeat -441px -212px; color:#fff; position:absolute; top:25px; left:25px; z-index:1;}
+
+.detection .warn .ico p{  width:197px; height:197px; background:url(../images/ld.png) no-repeat 0 0; position:absolute; left:0; top:0; z-index:0;
+}
+.detection .warn .ico i{ width:147px; height:147px; display:block; background:url(../images/ico.png) no-repeat -294px -212px; color:#fff; position:absolute; top:25px; left:25px; z-index:1;}
+.detection a{ text-decoration:none;}
+.detection .ror .text a{ color:#ef6354; font-size:30px; margin:0 10px;}
+.detection .warn .text a{ color:#c99c00; font-size:30px; margin:0 10px; }
+
+.detection .cont .text{ float:left;  font-family:"微软雅黑"; margin-left:60px; margin-top:20px;}
+.detection .cont .text h3{ font-size:45px; color:#fff; line-height:100px; font-weight:normal;}
+.detection .cont .text p{ line-height:40px; font-size:22px; color:#999999;}
+.detection .cont .text p span{ color:#dddddd; font-size:30px;}
+.detection .btn_jiance{ display:block; width:205px; height:57px; position:absolute; right:76px; bottom:59px; background:url(../images/ico.png) no-repeat 0 -98px;}
+.detection .btn_jiance_dis{ display:block; width:205px; height:57px; position:absolute; right:76px; bottom:59px; background:url(../images/ico.png) no-repeat 0 -155px; cursor:wait;}
+
+.detection .btn_jiance_en{ display:block; width:205px; height:57px; position:absolute; right:76px; bottom:59px; background:url(../images/ico.png) no-repeat -205px -98px;}
+.detection .btn_jiance_dis_en{ display:block; width:205px; height:57px; position:absolute; right:76px; bottom:59px; background:url(../images/ico.png) no-repeat -205px -155px; cursor:wait;}
+
+
+.statusbar{ height:200px; background:#2f3943; margin-top:20px;}
+.statusbar ul li{ float:left;  font-family:"微软雅黑";}
+.statusbar ul li span{ color:#999999; display:block;}
+.statusbar ul li i{ display:block;}
+.statusbar .left{ float:left; width:335px; height:135px; background:url(../images/statu_l.png) no-repeat; margin:36px 0 0 30px; font-size:18px; }
+.statusbar .right{ float:right; padding-right:40px; width:440px; height:103px; background:url(../images/statu_r.png) no-repeat; margin:58px 0 0 0; font-size:18px;}
+.statusbar .left li{ width:50%; text-align:center;}
+.statusbar .left li i{ height:49px; margin-top:30px; color:#27d4f3; font-style:normal; font-size:38px;}
+.statusbar .left li span{ line-height:40px;}
+.statusbar .left li .wifi{ width:65px; height:49px; display:inline-block; background:url(../images/ico.png) no-repeat 0 0;}
+.statusbar .right li{ width:100px; float:right; text-align:center; }
+.statusbar .right li i{ height:32px; width:32px; margin-top:20px; display:inline-block;}
+.statusbar .right li span{ line-height:48px;}
+.statusbar .right li .g4{background:url(../images/ico.png) no-repeat -65px 0;}
+.statusbar .right li .pa{background:url(../images/ico.png) no-repeat -97px 0;}
+.statusbar .right li .wow{background:url(../images/ico.png) no-repeat -129px 0;}
+.statusbar .right li .door{background:url(../images/ico.png) no-repeat -161px 0;}
+.statusbar .left .dis .wifi{ width:65px; height:49px; display:inline-block; background:url(../images/ico.png) no-repeat 0 -49px;}
+.statusbar .right .dis .g4{background:url(../images/ico.png) no-repeat -65px -32px;}
+.statusbar .right .dis .pa{background:url(../images/ico.png) no-repeat -97px -32px;}
+.statusbar .right .dis .wow{background:url(../images/ico.png) no-repeat -129px -32px;}
+.statusbar .right .dis .door{background:url(../images/ico.png) no-repeat -161px -32px;}
+
+
+.menu_bottom{ height:50px; background:#23252b; position:relative; font-family:"微软雅黑";}
+.menu_bottom .language{ position:absolute; left:20px; top:0; height:50px ; line-height:50px; width:100px;}
+.menu_bottom .language div{ position:relative; height:50px;}
+.menu_bottom .language div .ck{ color:#5d7185;  font-size:18px; padding:0 0 0 15px; height:50px; line-height:50px; display:block; cursor:pointer;}
+.menu_bottom .language div .ck i{background:url(../images/ico.png) no-repeat -25px -359px; width:8px; height:7px; vertical-align:middle; float:right; margin:21px 15px 0 0;}
+.menu_bottom .language div p{ position:absolute; bottom:50px; left:0; background:#5d7185; width:100px; display:none;}
+.menu_bottom .language div p a{ display:block; color:#fff; text-decoration:none; height:40px; line-height:40px; text-decoration:none; font-size:18px; padding:0 15px; border-bottom:1px solid #23252b;}
+.menu_bottom .screen{ position:absolute; right:20px; top:0; height:50px; overflow: hidden;}
+.menu_bottom .screen a{ float: left; line-height:50px; color:#5d7185; text-decoration:none; font-size:18px; padding:0 15px; overflow: hidden;}
+
+.menu_bottom .screen a i{ float: left; width:20px; height:18px; margin:18px 15px 0 0;  }
+.menu_bottom .screen a .lan{ background:url(../images/ico.png) no-repeat 0 -359px;}
+.menu_bottom .screen a .usb{ background:url(../images/ico_usb.png) no-repeat 0 0; width: 26px; }
+.menu_bottom .time{ width:380px; height:50px; margin:0 auto; text-align:center; line-height:50px; font-size:18px; color:#5d7185;} 
+.message{ position:absolute; z-index:999; width:1280px; height:70px; top:0; background:url(../images/warn_bg.png) no-repeat 0 bottom; overflow:hidden;}
+.message_ror{ position:absolute; z-index:999; width:1280px; height:70px; top:0; background:url(../images/ror_bg.png) no-repeat 0 bottom; overflow:hidden;}
+.message .fix{ position:relative;}
+.message_list{ position:absolute; z-index:9999; top:0;  padding:0 30px; width:1220px;}
+.message_list a{ display:block; height:50px; color:#fff; line-height:50px; margin-bottom:20px;  font-size:22px; font-family:"微软雅黑"; text-decoration:none; text-indent:30px; background:url(../images/li.png) no-repeat 5px 18px;}
+.message_list div{ position:relative;}
+.message_list div span{ position:absolute; right:0;  display:block; height:34px; width:34px; top:8px;}
+.btn_up{background:url(../images/li+.png) no-repeat;}
+.message_list div .ck{background:url(../images/li-.png) no-repeat;}
+
+
+.login{ position:absolute; right:0; top:80px; background:url(../images/login.png) no-repeat; width:340px; height:470px; z-index:99999; display:none;}
+.login .tip_message{ color:red; line-height:24px; height:24px; margin-top:5px; text-align:center;}
+.login .ipt{ width:247px; height:47px; margin:32px 0 0 33px; padding:0 15px}
+.login .ipt input{ background:none; border:0; height:47px; width:247px; vertical-align:middle; line-height:47px; font-size:30px; color:#333;}
+.login .nub{ position:relative; width:224px; height:234px; margin:14px 0 0 54px;}
+.login .btn,.login .btn_en{ margin: 25px auto 0; width:266px; height:47px;} 
+.login .btn button{border:0; margin:0; display:block; width:266px; height:47px; background:url(../images/password.png) no-repeat 0 -468px; }
+.login .btn button:active{background:url(../images/password.png) no-repeat 0 -517px; }
+
+.login .btn_en button{border:0; margin:0; display:block; width:266px; height:47px; background:url(../images/password.png) no-repeat 0 -566px; }
+.login .btn_en button:active{background:url(../images/password.png) no-repeat 0 -615px; }
+
+.login .side{ height:20px;}
+.login .side a{ display:block; height:20px; line-height:20px; margin-top:26px;}
+.nub button{ border:0; margin:0; display:block; width:52px; height:52px; position:absolute;}
+.a1{background:url(../images/password.png) no-repeat 0 -122px; left:0; top:122px;}
+.a1:active{background:url(../images/password.png) no-repeat 0 -356px;}
+.a2{background:url(../images/password.png) no-repeat -86px -122px; left:86px; top:122px;}
+.a2:active{background:url(../images/password.png) no-repeat -86px -356px;}
+.a3{background:url(../images/password.png) no-repeat -171px -122px; left:171px; top:122px;}
+.a3:active{background:url(../images/password.png) no-repeat -171px -356px;}
+.a4{background:url(../images/password.png) no-repeat 0 -61px; left:0; top:61px;}
+.a4:active{background:url(../images/password.png) no-repeat 0 -295px;}
+.a5{background:url(../images/password.png) no-repeat -86px -61px; left:86px; top:61px;}
+.a5:active{background:url(../images/password.png) no-repeat -86px -295px;}
+.a6{background:url(../images/password.png) no-repeat -171px -61px; left:171px; top:61px;}
+.a6:active{background:url(../images/password.png) no-repeat -171px -295px;}
+.a7{background:url(../images/password.png) no-repeat 0 0; left:0; top:0;}
+.a7:active{background:url(../images/password.png) no-repeat 0 -234px;}
+.a8{background:url(../images/password.png) no-repeat -86px 0; left:86px; top:0;}
+.a8:active{background:url(../images/password.png) no-repeat -86px -234px;}
+.a9{background:url(../images/password.png) no-repeat -171px 0; left:171px; top:0;}
+.a9:active{background:url(../images/password.png) no-repeat -171px -234px;}
+.a0{background:url(../images/password.png) no-repeat 0 -182px; left:0; top:182px;}
+.a0:active{background:url(../images/password.png) no-repeat 0 -416px;}
+.del{background:url(../images/password.png) no-repeat -171px -182px; left:171px; top:182px;}
+.del:active{background:url(../images/password.png) no-repeat -171px -416px;}
+
+
+
+.statusbar .mid{ float:left; width:300px; height:135px; margin:40px 0 0 100px; font-size:18px; overflow: hidden; }
+.statusbar .mid li{ float: left; width: 149px; }
+.statusbar .mid a{ display: block; width: 42px; height: 70px; margin: 0 auto 20px;}
+.statusbar .mid li span{ display: block;  text-align: center;  }
+.statusbar .mid .open{  background:url(../images/ico_open.png);}
+.statusbar .mid .close{  background:url(../images/ico_close.png);}
+
+
+.menu_bottom .screen a .lan_{ background:url(../images/ico_lan_.png) no-repeat 0 0;}
+.menu_bottom .screen a .usb_{ background:url(../images/ico_usb_.png) no-repeat 0 0; width: 26px; }
+
+
+
+

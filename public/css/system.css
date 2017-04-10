@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+.monitorCont{ overflow:hidden;}
+.monitorCont .page{ margin-right:15px;}
+
+.plane img{ border:1px solid #ddd;}
+
+.scrollTex .x1,.scrollTex .x2{ width:49%;}
+.scrollBarBg .x1,.scrollBarBg .b2{ width:50%;}
+.scrollBarBg .x2,.scrollBarBg .b4{ width:100%;}
+.scrollBarBg .b1{ width:25%;}
+.scrollBarBg .b3{ width:75%;}
+.scrollTex .b1,.scrollTex .b2,.scrollTex .b3,.scrollTex .b4{ width:24%;}
+
+
+.Testing_box .ok{  background:#fff; position:relative;}
+.Testing_box .ok span{ width:24px; height:24px; background:url("../img/ok2.png") no-repeat; display:block; position:absolute; right:0; bottom:0;}
+.Testing_box .img_cmt{background:url("../img/cmt.png") no-repeat center 40px; }
+.Testing_box .img_aps{background:url("../img/aps.png") no-repeat center 40px; }
+.Testing_box .img_adb{background:url("../img/adb.png") no-repeat center 40px; }
+.Testing_box .img_cpe{background:url("../img/cpe.png") no-repeat center 40px; }
+.Testing_box .img_cap{background:url("../img/cap.png") no-repeat center 40px; }
+.Testing_box .img_smartlcd{background:url("../img/smartlcd.png") no-repeat center 40px; }
+.Testing_box .img_server{background:url("../img/server.png") no-repeat center 40px; }
+.Testing_box .message{ color:red; clear:both; line-height:32px; margin-top:10px;}
+
+.ap_state_box{}
+
+
+
+.ckshow{ line-height:30px; font-size:16px; color:#666; margin:20px;}
+.ckshow a{ color:red; margin:0 5px;}
+.ckshow i{background:url(../img/037.gif) no-repeat 2px 2px; width:20px; height:20px; vertical-align:middle; display:inline-block; margin-right:10px; }
+.ckshow .ror i{background:url(../img/ico.png) no-repeat -87px -688px; }
+.ckshow .ok i{background:url(../img/ico.png) no-repeat -64px -688px;}
+
+.user i.wifi_ca{background:url(../img/ca/user_logo.png) no-repeat 0 0;}
+.user i.wifi_hna{background:url(../img/hna/user_logo.png) no-repeat 0 0;}
+.user i.wifi_yzr{background:url(../img/yzr/user_logo.png) no-repeat 0 0;}
+.user i.wifi_la{background:url(../img/la/user_logo.png) no-repeat 0 0;}
+.user i.wifi_atg{background:url(../img/atg/user_logo.png) no-repeat 0 0;}
+.user i.wifi_dae{background:url(../img/dae/user_logo.png) no-repeat 0 0;}
