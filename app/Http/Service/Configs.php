@@ -9,6 +9,7 @@
 namespace App\Http\Service;
 
 use App\Http\Service\Config\ConfigService;
+use App\Http\Service\Config\DiagnoseService;
 use App\Http\Service\Tcp\CommandHelper;
 
 class Configs
@@ -54,6 +55,13 @@ class Configs
     {
         return CommandHelper::sendCommand(Consts::CMD_SCRN_CALIBRATE, Consts::TARGET_CMT, "", false);
     }
-
+    /**
+     * 自检
+     */
+   public static function diagnose(){
+       //设置状态
+       $service=new DiagnoseService();
+       $service->diagnose();
+   }
 
 }

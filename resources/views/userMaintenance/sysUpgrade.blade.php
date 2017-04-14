@@ -88,7 +88,7 @@
 			<div class="blockBox mtop20" >
 				<p class="message">
 					<i class="icoSuccess"></i>
-					{{trans('content.System upgraded successfully, and it will reboot all device after 120s.')}}
+					{{trans('maintain.sysrebootdes')}}
 				</p>
 			</div>
 			<div class="subBox">

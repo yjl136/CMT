@@ -30,7 +30,7 @@
         <!-- 三级菜单 -->
         <ul class="threeMenu right">
             <li class=""><a href="{{url('system')}}">系统配置</a></li>
-            <li class="on"><a href="{{url('server')}}">CNSU配置</a></li>
+            <li class="on"><a href="{{url('server')}}">SERVER配置</a></li>
             <li class=""><a href="{{url('cap')}}">CWAP配置</a></li>
         </ul>
 
@@ -39,7 +39,7 @@
             <div class="Screening blockBox mtop10">
                 <p class="message text-left">
                     <i class="icoPop"></i>
-                    {{trans('说明：CNSU配置是对CNSU的（生产序列号和设备MOD）进行配置。')}}
+                    {{trans('说明：SERVER配置是对SERVER的（生产序列号和设备MOD）进行配置。')}}
                 </p>
                 <ul>
                     <li>

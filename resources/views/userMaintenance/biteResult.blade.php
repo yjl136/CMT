@@ -84,16 +84,16 @@
                     <li>
                         <p>交换机</p>
                     </li>
-                    <li>
+                    {{-- <li>
                         <label>IP地址：</label>
                         <span>
                              {{'N/A'}}
                         </span>
-                    </li>
+                    </li> --}}
                     <li>
                         <label>运行状态</label>
                         <span>
-                           <label class="label label-success">运行异常</label>
+                           <label class="label label-success">运行正常</label>
                         </span>
                     </li>
 

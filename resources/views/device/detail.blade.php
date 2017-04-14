@@ -94,7 +94,7 @@
                     <li>
                         <label>运行状态</label>
                         <span>
-                           <label class="label label-danger">运行异常</label>
+                           <label class="label label-success">运行正常</label>
                         </span>
                     </li>
 

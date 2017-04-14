@@ -113,7 +113,7 @@ return [
 
     'Current Version' => '當前版本',
     'Package Version' => '更新包版本',
-    'System upgraded successfully, and it will reboot all device after 120s.' => '系統更新成功，120秒後自動重啟所有設備。',
+    'System upgraded successfully, and it will reboot all device after 30s.' => '系統更新成功，30秒後自動重啟所有設備。',
 
 
 
@@ -121,7 +121,7 @@ return [
     'Select Unit' => '選擇部件',
     'Upgrade Unit' => '陞級部件',
     'Restart System' => '重啓系統',
-    'Device upgraded successfully, and it will reboot all device after 120s.' => '部件更新成功，120秒後自動重啟所有設備。',
+    'Device upgraded successfully, and it will reboot all device after 30s.' => '部件更新成功，30秒後自動重啟所有設備。',
     'Note: component upgrades are software and kernel upgrades for user specified components. Please make sure that the update package already exists on the server, click next.' => '說明：部件陞級是對用戶指定的部件進行軟件和內核的陞級。請確保更新包已經存在服務器上後，點擊（下一步）。',
 
 

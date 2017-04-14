@@ -52,8 +52,7 @@ class Config extends Model
      */
     public function getTroubleMessageList($status) {
         $list = DB::table('oam_troublemessage')
-            ->where('TroubleCode', $status)
-            ->where('Visible', '0')
+            ->where('Visible', '1')
             ->get();
         return $list;
     }

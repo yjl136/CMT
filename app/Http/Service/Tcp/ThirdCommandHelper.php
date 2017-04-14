@@ -78,7 +78,8 @@ class ThirdCommandHelper
                 $response = @socket_read( $socket, 2048000);        // Read the socket signaling to return the result
                 SocketLog::log ( "<<<< resp:" . $response );
                 $res = $this->filterResponse($response);
-                $result = $this->parseResponse($res);         // Parse the returned json data results
+                $res=explode("\n",$res);
+                $result = $this->parseResponse($res[0]);         // Parse the returned json data results
                 @socket_close($socket);                            // Close the socket connection, release resources
                 $socket = null;
                 return $result;
@@ -89,7 +90,7 @@ class ThirdCommandHelper
             throw new SocketException (sprintf("Cannot connect to server[%s:%d]", $host, $port));
         }
     }
-   /* public function __destruct() {
+  /*  public function __destruct() {
         if ($this->socket)
             @socket_close ( $this->socket );
     }*/

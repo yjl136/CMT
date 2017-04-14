@@ -234,8 +234,8 @@ class Consts
 
     /********************************************socket配置*******************************************/
     const DEFAULT_SOCKET_TIMEOUT = 90;// 默认socket超时时间
-    // const SOCKET_IP = '192.168.2.99';//定义socketIP
-    const SOCKET_IP = '127.0.0.1';//定义socketIP
+    const SOCKET_IP = '192.168.2.99';//定义socketIP
+    //const SOCKET_IP = '127.0.0.1';//定义socketIP
     const SOCKET_PORT = '7890';//定义socket端口常
     const THIRD_SOCKET_PORT = '6780';//定义第三方升级端口
     const SOCKET_PORT_SIC = '8900';//SIC的socket端口
@@ -348,6 +348,43 @@ class Consts
     const FT_EXCEL = 1;
     const FT_XML = 2;
     const FT_CSV = 3;
+
+
+ /*******************************************自检相关常量*******************************************/
+ const DIAGNOSE_STATUS_IDLE = 0;
+ const DIAGNOSE_STATUS_PROCESSING = 1;
+ const DIAGNOSE_STATUS_NORMAL = 2;
+ const DIAGNOSE_STATUS_ABNORMAL = 3;
+ const DIAGNOSE_STATUS_FAILED = 4;
+ const DIAGNOSE_STATUS_NAME = 'bite_statue' ;
+ const DIAGNOSE_TYPE_4G = 1 ;
+ const DIAGNOSE_TYPE_WIFI = 2 ;
+ const DIAGNOSE_TYPE_DEVICE = 3 ;
+ const CAP_STATUS_ABNORMAL = 1 ;
+ const CAP_STATUS_FAILED = 2 ;
+
+
+ const W4G_ERR_NONE = 0 ;
+ const W4G_ERR_DIAL_FAILED = 1 ;
+ const W4G_ERR_SIM_CARD_NOT_FOUND = 2 ;
+ const W4G_ERR_HARD_SWITCH_CLOSE = 3;
+ const W4G_ERR_UNKNOWN = 4 ;
+
+
+/*
+0：W4G_ERR_NONE,
+1：W4G_ERR_DIAL_FAILED,
+2：W4G_ERR_NOT_FOUND_DIAL_LOG,
+3：W4G_ERR_RECV_AT_CMD_FAILED,
+4：W4G_ERR_SIM_NONE,
+5：W4G_ERR_NO_SIGNAL,
+6：W4G_ERR_OUT_OF_SERVICE,
+7：W4G_ERR_UNKNOWN,*/
+
+
+ const APP_CONFIG_XML = '/usr/donica/app/config.xml' ;
+ const APP_CONFIG_INI = '/usr/donica/app/config.ini';
+ const DEFAULT_HEIGHT_THREHOLD = 10000;
 
 
 }

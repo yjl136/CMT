@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Service\Configs;
 use Illuminate\Http\Request;
 use App\Dashboard;
 use Carbon\Carbon;
@@ -76,6 +77,8 @@ class DashboardController extends Controller
      */
     public function onekeyBite()
     {
+
+        Configs::diagnose();
         $config = new Config;
         $diagnose_status = $config->getDiagnoseStatus();
         $message_list = $config->getTroubleMessageList($diagnose_status);

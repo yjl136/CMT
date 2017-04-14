@@ -30,7 +30,7 @@
 		 <!-- 三级菜单 -->
 		 <ul class="threeMenu right">
 			 <li class="on"><a href="{{url('system')}}">系统配置</a></li>
-			 <li class=""><a href="{{url('server')}}">CNSU配置</a></li>
+			 <li class=""><a href="{{url('server')}}">SERVER配置</a></li>
 			 <li class=""><a href="{{url('cap')}}">CWAP配置</a></li>
 		 </ul>
 

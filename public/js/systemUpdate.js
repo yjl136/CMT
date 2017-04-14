@@ -214,8 +214,8 @@ function querySysUpdateProgress(){
 					}else{
 						showDevice(data["content"]);
 						changeStep(4);
-						loading_dialog = layer.load('等待系统重启...', 125);
-						setTimeout(function(){reboot(0);}, 120000);
+						loading_dialog = layer.load('等待系统重启...', 35);
+						setTimeout(function(){reboot(0);}, 30000);
 					}
 				}else{//查询失败
 					// if unknown error, do nothing

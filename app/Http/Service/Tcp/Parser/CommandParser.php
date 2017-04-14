@@ -10,6 +10,7 @@ namespace App\Http\Service\Tcp\Parser;
 use App\Http\Service\Consts;
 use App\Http\Service\Log\CommandLog;
 use App\Http\Service\Log\Log;
+use App\Http\Service\Log\SocketLog;
 use App\Http\Service\Tcp\Command;
 use App\Http\Service\Tcp\CommandResult;
 
@@ -23,7 +24,6 @@ class CommandParser
     }
 
     public function parseResponse($response) {
-
         if (empty ( $response )) { // 信令回复为空
             $cmdResult = new CommandResult ( Consts::CODE_BAD_FORMAT );
 

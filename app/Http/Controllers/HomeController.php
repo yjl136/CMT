@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Device;
+use App\Http\Service\Configs;
 use App\Http\Service\Maintain;
 use Illuminate\Http\Request;
 use App\Config;
@@ -19,6 +20,7 @@ class HomeController extends Controller
     {
         $timeType = env('TYPE_TIME');   //根据配置文件获取时间类型
         $config = new Config;
+
         $diagnose_status = $config->getDiagnoseStatus();   //得到系统的诊断状态
         $diagnose_message = $config->getDiagnoseMessage($diagnose_status); //得到WIFI的错误信息
         $message_list = $config->getTroubleMessageList($diagnose_status); //得到所有的错误提示信息
@@ -85,6 +87,8 @@ class HomeController extends Controller
      */
     public function onekeyBite()
     {
+
+
         $config = new Config;
         $diagnose_status = $config->getDiagnoseStatus();
         $message_list = $config->getTroubleMessageList();

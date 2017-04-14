@@ -105,7 +105,7 @@ return [
 
     'Current Version' => 'Current Version',
     'Package Version' => 'Package Version',
-    'System upgraded successfully, and it will reboot all device after 120s.' => 'System upgraded successfully, and it will reboot all device after 120s.',
+    'System upgraded successfully, and it will reboot all device after 30s.' => 'System upgraded successfully, and it will reboot all device after 30s.',
 
 
 
@@ -115,7 +115,7 @@ return [
     'Select Unit' => 'Select Unit',
     'Upgrade Unit' => 'Upgrade Unit',
     'Restart System' => 'Restart System',
-    'Device upgraded successfully, and it will reboot all device after 120s.' => 'Device upgraded successfully, and it will reboot all device after 120s.',
+    'Device upgraded successfully, and it will reboot all device after 30s.' => 'Device upgraded successfully, and it will reboot all device after 30s.',
     'Note: component upgrades are software and kernel upgrades for user specified components. Please make sure that the update package already exists on the server, click next.' => 'Note: component upgrades are software and kernel upgrades for user specified components. Please make sure that the update package already exists on the server, click next.',
 
 

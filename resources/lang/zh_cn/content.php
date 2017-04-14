@@ -113,7 +113,7 @@ return [
 
     'Current Version' => '当前版本',
     'Package Version' => '更新包版本',
-    'System upgraded successfully, and it will reboot all device after 120s.' => '系统更新成功，120秒后自动重启所有设备。',
+    'System upgraded successfully, and it will reboot all device after 30s.' => '系统更新成功，30秒后自动重启所有设备。',
 
 
 
@@ -121,7 +121,7 @@ return [
     'Select Unit' => '选择部件',
     'Upgrade Unit' => '升级部件',
     'Restart System' => '重启系统',
-    'Device upgraded successfully, and it will reboot all device after 120s.' => '部件更新成功，120秒后自动重启所有设备。',
+    'Device upgraded successfully, and it will reboot all device after 30s.' => '部件更新成功，30秒后自动重启所有设备。',
     'Note: component upgrades are software and kernel upgrades for user specified components. Please make sure that the update package already exists on the server, click next.' => '说明：部件升级是对用户指定的部件进行软件和内核的升级。请确保更新包已经存在服务器上后，点击(下一步)。',
 
 
