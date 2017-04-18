@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Service\Log\SessionLog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Support\Helpers\Formatter;
@@ -15,6 +16,7 @@ use App\Http\Service\Consts;
 use App\Http\Service\Maintain;
 use App\Http\Service\Utils\ConvertHelper;
 use App\Http\Service\Utils\UpdateWays;
+use Symfony\Component\HttpKernel\EventListener\SessionListener;
 
 
 class MaintenanceController extends Controller
@@ -159,9 +161,9 @@ class MaintenanceController extends Controller
     public function dialLog(){
         $syslog = new Syslog;
         $dialList = $syslog->getDialPaginateData();
-        $log_time	= $dialList[0]->create_time;
-        $lists		= explode('@', $dialList[0]->message);
-        return view('userMaintenance.dialLog',compact('log_time','lists'));
+      /*  $log_time	= $dialList[0]->create_time;
+        $lists		= explode('@', $dialList[0]->message);*/
+        return view('userMaintenance.dialLog',compact('dialList'));
     }
 
     /**
@@ -203,6 +205,7 @@ class MaintenanceController extends Controller
     public function __construct()
     {
         $this->middleware(function ($request, $next) {
+            SessionLog::log("cmt_user_name: ".$request->session()->get('cmt_user_name')."   cmt_user_type:".$request->session()->get('cmt_user_type'));
             if (empty($request->session()->get('cmt_user_name')) || empty($request->session()->get('cmt_user_type'))) {
                 return redirect('/');
             }else{

@@ -68,7 +68,11 @@ class Device extends Model
                     $result["cpu_temperature"] = $format::formatTemperature($devicePhysicInfo["4-12-6"]->ParamValue);
                     break;
                 case "4-12-7":
-                    $result["system_temperature"] = $format::formatTemperature($devicePhysicInfo["4-12-7"]->ParamValue);
+                    if (isset($devicePhysicInfo["4-12-7"])) {
+                        $result["system_temperature"] = $format::formatTemperature($devicePhysicInfo["4-12-7"]->ParamValue);
+                    } else {
+                        $result["system_temperature"] = $format::formatTemperature($devicePhysicInfo["4-12-6"]->ParamValue - 2);
+                    }                    
                     break;
                 default:
                     $result = '';

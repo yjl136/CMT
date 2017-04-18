@@ -83,8 +83,6 @@
 @stop
 
 @section('footer')
-
-
 	<script type="text/javascript" src='{{asset('/keyboard/js/keyboard.js')}}'></script>
 	<script type="text/javascript" src='{{asset('/js/dataExport.js')}}'></script>
 	<script type="text/javascript" src='{{asset('/js/common.js')}}'></script>

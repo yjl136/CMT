@@ -45,7 +45,6 @@
         </table>
 
         <div class="mtop15">
-
             {{ $dialList->links() }}
         </div>
     </div>

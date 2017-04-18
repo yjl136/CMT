@@ -121,6 +121,13 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#d8effd', endC
 .page li em{ color:#333; font-style:normal;}
 .page li input{ width:30px; text-align:center;}
 .page li span{}
+.pagination{ height:40px; float:right;}
+.pagination li{ float:left;height:40px;color:#999;line-height:40px;margin-left:10px;}
+.pagination li a{display:inline-block;height:40px;line-height:40px;background:#3278DC;color:#fff;padding:0 20px;font-size:14px;}
+.pagination li a.disable{  background:#ccc;}
+.pagination li em{ color:#333; font-style:normal;}
+.pagination li input{ width:30px; text-align:center;}
+.pagination li span{}
 
 
 .threeMenu{ height:38px; border-radius:5px; background:#ddd; padding:1px;}

@@ -366,9 +366,18 @@ class Consts
 
  const W4G_ERR_NONE = 0 ;
  const W4G_ERR_DIAL_FAILED = 1 ;
- const W4G_ERR_SIM_CARD_NOT_FOUND = 2 ;
- const W4G_ERR_HARD_SWITCH_CLOSE = 3;
- const W4G_ERR_UNKNOWN = 4 ;
+ const W4G_ERR_NOT_FOUND_DIAL_LOG = 2 ;
+ const W4G_ERR_RECV_AT_CMD_FAILED = 3;
+ const W4G_ERR_SIM_NONE = 4 ;
+ const W4G_ERR_NO_SIGNAL = 5 ;
+ const W4G_ERR_OUT_OF_SERVICE = 6 ;
+ const W4G_ERR_UNKNOWN = 7 ;
+ const W4G_ERR_SWITCH_CLOSE = 8;
+
+ const W4G_ERR_DIAL_FAILED_CODE = 4;//拨号失败状态码
+ const W4G_ERR_SIM_CARD_NOT_FOUND_CODE = 2;//sim卡不在
+ const W4G_ERR_NO_SIGNAL_CODE = 1;//信号弱
+ const W4G_ERR_SWITCH_CLOSE_CODE = 3;//开关
 
 
 /*

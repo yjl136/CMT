@@ -100,6 +100,7 @@ class Syslog extends Model
      */
     public function saveOperation($logMsg, $equipment, $type)
     {
+
         $result = DB::table('cmt_operate')->insert(
             [
                 'operate_time' => date('Y-m-d H:i:s', time()),    //操作时间

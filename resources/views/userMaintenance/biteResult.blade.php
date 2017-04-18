@@ -20,7 +20,7 @@
             <li class=""><a class="system" href="{{url('operateLog')}}"><span>&nbsp;{{trans('menu.Information')}}&nbsp;</span></a></li>
         </ul>
         <ul class="topUser right">
-            <li class="user"><a href="#"><i style="background: url({{ asset('/img/logos') }}/{{config('app.airline_company')}}/{{'user_logo.png'}}) repeat 0 0;"></i><span>{{trans('menu.Hello')}}!{{trans('menu.Super Admin')}}</span></a></li>
+            <li class="user"><a href="#"><i style="background: url({{ asset('/img/logos') }}/{{config('app.airline_company')}}/{{'user_logo.png'}}) repeat 0 0;"></i><span>{{trans('menu.Hello')}}!{{trans('menu.Maintenance')}}</span></a></li>
             <li class="loginOut"><a href="{{url('logout')}}"><i></i><span>{{trans('menu.Exit')}}</span></a></li>
         </ul>
     </div>
@@ -40,9 +40,9 @@
             </p>
         </div>
         <ul class="threeMenu right mtop15">
-            <li class="on"><a href="{{url('showBiteResult')}}/{{$deviceDetail->DevID}}">{{trans('自检详情')}}</a></li>
+            <li class="on"><a href="{{url('/maintenance/showDevice')}}/{{$deviceDetail->DevID}}">{{trans('自检详情')}}</a></li>
             <li class="">
-                <a href="{{url('showDevice')}}/{{$deviceDetail->DevID}}/alarm">
+                <a href="{{url('/maintenance/showDevice')}}/{{$deviceDetail->DevID}}/alarm">
                     {{trans('menu.Alarm Info')}}
                 </a>
             </li>

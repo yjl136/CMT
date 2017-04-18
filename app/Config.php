@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Http\Service\Consts;
 use Illuminate\Support\Facades\Crypt;
 use App\Http\Service\Log\Log;
 use Illuminate\Support\Facades\DB;
@@ -10,27 +11,25 @@ use app\Http\Service\Tools\EmailHelper;
 use app\Http\Service\Tools\NetTool;
 
 
+define("DIAGNOSE_STATUS_IDLE", 0); // 尚未开始检测
+define("DIAGNOSE_STATUS_PROCESSING", 1); // 正在检测
+define("DIAGNOSE_STATUS_NORMAL", 2); // 系统正常
+define("DIAGNOSE_STATUS_ABNORMAL", 3); // 系统异常
+define("DIAGNOSE_STATUS_FAILED", 4); // 系统故障
 
 
- define ( "DIAGNOSE_STATUS_IDLE", 0 ); // 尚未开始检测
- define ( "DIAGNOSE_STATUS_PROCESSING", 1 ); // 正在检测
- define ( "DIAGNOSE_STATUS_NORMAL", 2 ); // 系统正常
- define ( "DIAGNOSE_STATUS_ABNORMAL", 3 ); // 系统异常
- define ( "DIAGNOSE_STATUS_FAILED", 4 ); // 系统故障
-
-
- define ( "STATUS_WIFI", 'WiFi' ); // WiFi
- define ( "STATUS_KU", 2 ); // Ku
- define ( "STATUS_4G", '4G' ); // 4G
- define ( "STATUS_WOW", 'WoW' ); // WOW
- define ( "STATUS_PA", 'PA' ); // PA
- define ( "STATUS_ATG", 'ATG' ); // ATG
- define ( "STATUS_ONLINE_USERS", 'OnlineUsers' ); // Online Users
- define ( "STATUS_DOOR", 'Door' ); // door status
- define ( "STATUS_LAN", 'LAN' ); // door status
- define ( "STATUS_USB", 'USB' ); // door status
- define ( "STATUS_4GSWITCH", '4GSWITCH' ); // door status
- define ( "STATUS_WIFISWITCH", 'WIFISWITCH' ); // door status
+define("STATUS_WIFI", 'WiFi'); // WiFi
+define("STATUS_KU", 2); // Ku
+define("STATUS_4G", '4G'); // 4G
+define("STATUS_WOW", 'WoW'); // WOW
+define("STATUS_PA", 'PA'); // PA
+define("STATUS_ATG", 'ATG'); // ATG
+define("STATUS_ONLINE_USERS", 'OnlineUsers'); // Online Users
+define("STATUS_DOOR", 'Door'); // door status
+define("STATUS_LAN", 'LAN'); // door status
+define("STATUS_USB", 'USB'); // door status
+define("STATUS_4GSWITCH", '4GSWITCH'); // door status
+define("STATUS_WIFISWITCH", 'WIFISWITCH'); // door status
 class Config extends Model
 {
     protected $table = 'cmt_config';
@@ -50,7 +49,8 @@ class Config extends Model
      * @return mixed
      * 获取系统的错误信息
      */
-    public function getTroubleMessageList($status) {
+    public function getTroubleMessageList($status)
+    {
         $list = DB::table('oam_troublemessage')
             ->where('Visible', '1')
             ->get();
@@ -67,26 +67,27 @@ class Config extends Model
      * define ( "DIAGNOSE_STATUS_FAILED", 4 ); // 系统故障
      * 根据状态获取自检的信息
      */
-    public function getDiagnoseMessage($status) {
+    public function getDiagnoseMessage($status)
+    {
         switch ($status) {
             case DIAGNOSE_STATUS_IDLE :
-                $status_message = trans ( "尚未开始检测" );
+                $status_message = trans("尚未开始检测");
                 break;
 
             case DIAGNOSE_STATUS_PROCESSING :
-                $status_message = trans ( "检测中......" );
+                $status_message = trans("检测中......");
                 break;
 
             case DIAGNOSE_STATUS_NORMAL :
-                $status_message = trans ( "系统运行正常" );
+                $status_message = trans("系统运行正常");
                 break;
 
             case DIAGNOSE_STATUS_ABNORMAL :
-                $status_message = trans ( "系统运行异常" );
+                $status_message = trans("系统运行异常");
                 break;
 
             case DIAGNOSE_STATUS_FAILED :
-                $status_message = trans ( "系统故障" );
+                $status_message = trans("系统故障");
                 break;
         }
         return $status_message;
@@ -98,7 +99,7 @@ class Config extends Model
      */
     public function getStatus()
     {
-        $stat_list = array (
+        $stat_list = array(
             "WIFI",
             "4G",
             "WoW",
@@ -112,11 +113,11 @@ class Config extends Model
             "WifiSwitch",
         );
 
-        $status = array ();
-        foreach ( $stat_list as $name ) {
-            $cons_name = strtoupper ( sprintf ( "status_%s", $name ) );
-            $key = strtolower ( $cons_name );
-            $status [$key] = $this->_getStatus ( constant ( $cons_name ) );
+        $status = array();
+        foreach ($stat_list as $name) {
+            $cons_name = strtoupper(sprintf("status_%s", $name));
+            $key = strtolower($cons_name);
+            $status [$key] = $this->_getStatus(constant($cons_name));
         }
         return $status;
     }
@@ -137,9 +138,9 @@ class Config extends Model
      * define ( "STATUS_3G_ERR_CODE", 9 ); // 3G module State Error Code
      * define ( "STATUS_DOOR", 10 ); // door status
      */
-    public function _getStatus($type) {
+    public function _getStatus($type)
+    {
         switch ($type) {
-            case STATUS_WIFI :
             case STATUS_4G :
             case STATUS_WOW :
             case STATUS_PA :
@@ -149,17 +150,49 @@ class Config extends Model
             case STATUS_USB :
             case STATUS_4GSWITCH :
             case STATUS_WIFISWITCH:
-                $status = $this->getPublicStatus ( $type );
+                $status = $this->getPublicStatus($type);
                 break;
 
             case STATUS_ONLINE_USERS :
-                $status = $this->getOnlineUsers (  );
+                $status = $this->getOnlineUsers();
                 break;
-
+            case STATUS_WIFI :
+                $status=$this->getWifiStatus();
+                break;
             default :
                 $status = 0;
                 break;
         }
+        return $status;
+    }
+
+    public function getWifiStatus()
+    {
+        //读出3个cap状态
+        $status = 1;
+        $status_list = $this->getCapStatus();
+        if (count($status_list)) {
+            foreach ($status_list as $device) {
+                if ($device->DevStatus == 2) {
+                    $status = 1;
+                    break;
+                }
+                $status = 0;
+            }
+        } else {
+            $status = 0;
+        }
+        return $status;
+    }
+
+    /**
+     * @return mixed
+     * 读出三个cap状态
+     */
+    public function getCapStatus()
+    {
+        $sql = "select * from " . Consts::OAM_DEVICE . "  where DevType='15'";
+        $status = DB::select($sql);
         return $status;
     }
 
@@ -169,9 +202,9 @@ class Config extends Model
             ['Available', '=', '1'],
             ['Name', '=', $type],
         ])->first();
-        if ($dash_info->Value=='1'){
+        if ($dash_info->Value == '1') {
             return $status = 1;
-        }else{
+        } else {
             return $status = 0;
         }
     }
@@ -195,7 +228,7 @@ class Config extends Model
     {
         $receiverList = DB::table('oam_mail_info')
             ->join('cmt_task', 'oam_mail_info.MailType', '=', 'cmt_task.TaskDesc')
-            ->where('Active','1')
+            ->where('Active', '1')
             ->select('oam_mail_info.MailType', 'oam_mail_info.UserID', 'oam_mail_info.Subject', 'cmt_task.TaskID')
             ->get();
         return $receiverList;
@@ -209,7 +242,7 @@ class Config extends Model
     public function getReceiverByMailType($type)
     {
         $receiver = DB::table('oam_mail_info')
-            ->where('MailType',$type)
+            ->where('MailType', $type)
             ->first();
         return $receiver;
     }
@@ -247,7 +280,7 @@ class Config extends Model
     public function getSenderByUserId($user_id)
     {
         $sender = DB::table('oam_mail_user')
-            ->where('UserID',$user_id)
+            ->where('UserID', $user_id)
             ->first();
         return $sender;
     }
@@ -290,7 +323,7 @@ class Config extends Model
     public function getUserByUserType($user_type)
     {
         $user = DB::table('cmt_admin_user')
-            ->where('type',$user_type)
+            ->where('type', $user_type)
             ->first();
         return $user;
     }
@@ -317,7 +350,7 @@ class Config extends Model
     public function getUsbConfigInfoByUpgradeMethod()
     {
         $result = DB::table('oam_ftp_info')
-            ->where('type',1)
+            ->where('type', 1)
             ->first();
         return $result;
     }
@@ -330,7 +363,7 @@ class Config extends Model
      * @return mixed
      * 更新USB系统升级的参数
      */
-    public function updateSystemUpgradeUsbConfig($type=1, $url, $username, $password)
+    public function updateSystemUpgradeUsbConfig($type = 1, $url, $username, $password)
     {
         $result = DB::table('oam_ftp_info')
             ->where('type', $type)
@@ -348,7 +381,7 @@ class Config extends Model
     public function getSystemIdByName($name)
     {
         $result = DB::table('cmt_config')
-            ->where('var_name',$name)
+            ->where('var_name', $name)
             ->first();
         return $result;
     }
@@ -368,7 +401,7 @@ class Config extends Model
 
     public function getAllDeviceInfo()
     {
-        
+
     }
 
     /**
@@ -378,7 +411,7 @@ class Config extends Model
      */
     public function getSomeFlightData()
     {
-        $flightDatas = array("Altitude","AirSpeed","Latitude","Longitude");
+        $flightDatas = array("Altitude", "AirSpeed", "Latitude", "Longitude");
         foreach ($flightDatas as $flightData) {
             $result[] = DB::table('oam_dashboard_info')
                 ->where('Name', $flightData)
@@ -394,7 +427,8 @@ class Config extends Model
      * @return mixed
      * 将得到的错误消息记录到cmt_diagnosis_result
      */
-    public function getTroubleMessageTo($err_type,$err_code,$err_msg) {
+    public function getTroubleMessageTo($err_type, $err_code, $err_msg)
+    {
         $now_time = date("Y-m-d H:i:s", time());
         $result = DB::table('cmt_diagnosis_result')->insert(
             [
@@ -454,42 +488,43 @@ class Config extends Model
     public function updateCapSnAndModConfig($cap_sn1, $cap_em1, $cap_sn2, $cap_em2, $cap_sn3, $cap_em3)
     {
         $result[] = DB::table('cmt_version')
-                ->where('DevPosition', '0-ap-1')
-                ->update(
-                    ['DevSeq' => $cap_sn1,
+            ->where('DevPosition', '0-ap-1')
+            ->update(
+                ['DevSeq' => $cap_sn1,
                     'DevModel' => $cap_em1]
-                );
+            );
 
         $result[] = DB::table('cmt_version')
-                ->where('DevPosition', '0-ap-2')
-                ->update(
-                    ['DevSeq' => $cap_sn2,
-                     'DevModel' => $cap_em2]
-                );
+            ->where('DevPosition', '0-ap-2')
+            ->update(
+                ['DevSeq' => $cap_sn2,
+                    'DevModel' => $cap_em2]
+            );
 
         $result[] = DB::table('cmt_version')
-                ->where('DevPosition', '0-ap-3')
-                ->update(
-                    ['DevSeq' => $cap_sn3,
-                     'DevModel' => $cap_em3]
-                );
+            ->where('DevPosition', '0-ap-3')
+            ->update(
+                ['DevSeq' => $cap_sn3,
+                    'DevModel' => $cap_em3]
+            );
 
         return $result;
     }
 
 
-    public function validateSender($userId) {
-        $sender = $this->getSenderByUserID ( $userId );
-        $email_helper = new EmailHelper ( $sender ["UserID"], $sender ["Pwd"], $sender ["SmtpSvr"], $sender ["Port"] );
+    public function validateSender($userId)
+    {
+        $sender = $this->getSenderByUserID($userId);
+        $email_helper = new EmailHelper ($sender ["UserID"], $sender ["Pwd"], $sender ["SmtpSvr"], $sender ["Port"]);
         $net_tool = new NetTool();
-        define ( "CNSU_IP", "192.168.2.99" );
-        $error_code = $net_tool->addRoute ( CNSU_IP );
-        Log::write ( "add route gateway : " . CNSU_IP . " " . ($error_code ? "failed" : "success"), Log::DEBUG, Log::FILE );
-        Log::write ( "validate smtp " . print_r ( $sender, true ), Log::DEBUG, Log::FILE );
-        $result = $email_helper->validateSMTP ();
-        Log::write ( "validate email " . ($result ? "success" : "failed"), Log::DEBUG, Log::FILE );
-        $error_code = $net_tool->delRoute ( CNSU_IP );
-        Log::write ( "del route gateway : " . CNSU_IP . " " . ($error_code ? "failed" : "success"), Log::DEBUG, Log::FILE );
+        define("CNSU_IP", "192.168.2.99");
+        $error_code = $net_tool->addRoute(CNSU_IP);
+        Log::write("add route gateway : " . CNSU_IP . " " . ($error_code ? "failed" : "success"), Log::DEBUG, Log::FILE);
+        Log::write("validate smtp " . print_r($sender, true), Log::DEBUG, Log::FILE);
+        $result = $email_helper->validateSMTP();
+        Log::write("validate email " . ($result ? "success" : "failed"), Log::DEBUG, Log::FILE);
+        $error_code = $net_tool->delRoute(CNSU_IP);
+        Log::write("del route gateway : " . CNSU_IP . " " . ($error_code ? "failed" : "success"), Log::DEBUG, Log::FILE);
         return $result;
     }
 

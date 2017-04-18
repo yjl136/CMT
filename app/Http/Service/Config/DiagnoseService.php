@@ -77,6 +77,11 @@ class DiagnoseService
         $result = $this->getDashboardValue('4G');
         return $result->Value;
     }
+
+    public function get4GSwitchState(){
+        $result = $this->getDashboardValue('4GSwitch');
+        return $result->Value;
+    }
     public function clearTroubleMessage($type){
         $sql = "UPDATE " . Consts::OAM_TROUBLE_MESSAGE . " SET Visible = 0, CreateTime = NOW()" .  " WHERE Type = ?";
         DB::update($sql,[$type]);
@@ -187,14 +192,36 @@ class DiagnoseService
     private function diagnose4GModuleStatus(){
         $status = Consts::DIAGNOSE_STATUS_NORMAL;
         $this->clearTroubleMessage ( Consts::DIAGNOSE_TYPE_4G );
-        $trouble_code = $this->get4GModuleState ();
+        if(!$this->get4GSwitchState()){
+            $trouble_code = Consts::W4G_ERR_SWITCH_CLOSE;
+        }else{
+            $trouble_code = $this->get4GModuleState ();
+        }
+
         switch ($trouble_code) {
-            case Consts::W4G_ERR_NO_SIGNAL :
-            case Consts::W4G_ERR_SIM_CARD_NOT_FOUND :
-            case Consts::W4G_ERR_HARD_SWITCH_CLOSE :
+            case Consts::W4G_ERR_DIAL_FAILED:
+            case Consts::W4G_ERR_RECV_AT_CMD_FAILED:
+            case Consts::W4G_ERR_NOT_FOUND_DIAL_LOG:
             case Consts::W4G_ERR_UNKNOWN :
                 $status = Consts::DIAGNOSE_STATUS_ABNORMAL;
-                $this->notifyTroubleMessage ( Consts::DIAGNOSE_TYPE_4G, $trouble_code );
+                $this->notifyTroubleMessage ( Consts::DIAGNOSE_TYPE_4G, Consts::W4G_ERR_DIAL_FAILED_CODE);
+                break;
+            case Consts::W4G_ERR_SWITCH_CLOSE:
+                //被关闭了
+                $status = Consts::DIAGNOSE_STATUS_ABNORMAL;
+                $this->notifyTroubleMessage ( Consts::DIAGNOSE_TYPE_4G, Consts::W4G_ERR_SWITCH_CLOSE_CODE );
+                break;
+
+            case Consts::W4G_ERR_SIM_NONE:
+                //被关闭了
+                $status = Consts::DIAGNOSE_STATUS_ABNORMAL;
+                $this->notifyTroubleMessage ( Consts::DIAGNOSE_TYPE_4G, Consts::W4G_ERR_SIM_CARD_NOT_FOUND_CODE );
+                break;
+             case Consts::W4G_ERR_NO_SIGNAL :
+             case Consts::W4G_ERR_OUT_OF_SERVICE:
+                //被关闭了
+                $status = Consts::DIAGNOSE_STATUS_ABNORMAL;
+                $this->notifyTroubleMessage ( Consts::DIAGNOSE_TYPE_4G, Consts::W4G_ERR_NO_SIGNAL_CODE );
                 break;
             default :
                 $this->clearTroubleMessage (Consts::DIAGNOSE_TYPE_4G);

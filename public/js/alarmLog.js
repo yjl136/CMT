@@ -110,7 +110,7 @@ function getClearStatus(){
 }
 
 function showAlarmDetail(id){
-	$.get("index.php?group=device&module=device&action=alarmDetail&id="+id, {}, function(content) {
+	/*$.get("index.php?group=device&module=device&action=alarmDetail&id="+id, {}, function(content) {
 		layer.open({
 			type : 1,
 			shade: [0.5, "#000"],
@@ -119,5 +119,5 @@ function showAlarmDetail(id){
 		    title: false,
 			content : content
 		});
-	});
+	});*/
 }
