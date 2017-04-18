@@ -258,7 +258,21 @@ class ConfigController extends Controller
             return view('config.capconfig',compact('data'));
         }
     }
-
+ public function networkModeConfig(Request $request){
+     $config = new Config;
+     if ($request->ajax()){
+         $mode = $request->get('mode');
+         $result = $config->updateNetWorkMode($mode);
+         if ($result){
+             return response()->json("success");
+         }else{
+             return response()->json("error");
+         }
+     }else{
+         $data = $config->getNetWorkMode();
+         return view('config.networkconfig',compact('data'));
+     }
+ }
 
 
 

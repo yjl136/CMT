@@ -2,8 +2,9 @@
 
 namespace App\Providers;
 
+use App\Http\Service\Log\SessionLog;
 use Illuminate\Support\ServiceProvider;
-
+use DB;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -13,7 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+
     }
 
     /**

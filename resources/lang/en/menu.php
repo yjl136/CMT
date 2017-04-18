@@ -38,6 +38,7 @@ return [
     'System' => 'System',
     'Calibration' => 'Calibration',
     'TimeSetting' => 'TimeSetting',
+    'NetWorkSetting' => 'NetWork Setting',
     'Bite' => 'Bite',
     'SysUpgrade' => 'SysUpgrade',
     'DevUpgrade' => 'DevUpgrade',

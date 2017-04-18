@@ -42,6 +42,7 @@ Route::any('/system','ConfigController@sysConfig');
 Route::any('/timesync','ConfigController@timesync');
 Route::any('/server','ConfigController@serverConfig');
 Route::any('/cap','ConfigController@capConfig');
+Route::any('/network','ConfigController@networkModeConfig');
 
 /**
  * System控制器中的一些操作

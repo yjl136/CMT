@@ -20,6 +20,7 @@
             <li class=""><a href="{{url('receiver')}}">{{trans('menu.Mail')}}</a></li>
             <li class="on"><a href="{{url('users')}}">{{trans('menu.Account')}}</a></li>
            {{-- <li class=""><a href="{{url('http')}}">{{trans('menu.Upgrade')}}</a></li>--}}
+            <li class=""><a href="{{url('network')}}">{{trans('menu.NetWorkSetting')}}</a></li>
             <li class=""><a href="{{url('transmission')}}">{{trans('menu.Transfer')}}</a></li>
             <li class=""><a href="{{url('system')}}">{{trans('menu.System')}}</a></li>
             <li class=""><a href="{{url('timesync')}}">{{trans('menu.TimeSetting')}}</a></li>

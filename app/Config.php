@@ -467,6 +467,18 @@ class Config extends Model
         return $result;
     }
 
+    public function getNetWorkMode(){
+        $result = DB::table('cmt_config')
+            ->where('var_name', "caps_network_mode")
+            ->first();
+        return $result;
+    }
+    public function updateNetWorkMode($mode){
+        $result = DB::table('cmt_config')
+            ->where('var_name', "caps_network_mode")
+            ->update(['var_value' => $mode]);
+        return $result;
+      }
     public function updateServerConfig($type = 4, $server_sn, $server_em)
     {
         $result = DB::table('cmt_version')

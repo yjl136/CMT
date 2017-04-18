@@ -27,6 +27,7 @@ return [
     'System' => '系统配置',
     'Calibration' => '屏幕校准',
     'TimeSetting' => '时间设置',
+    'NetWorkSetting' => '网络配置',
     'Bite' => '系统自检',
     'SysUpgrade' => '系统升级',
     'DevUpgrade' => '部件升级',
