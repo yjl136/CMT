@@ -114,6 +114,7 @@ function getUrl(){
 }
 
 function showAlarmDetail(id){
+/*	
 	$.get("index.php?group=device&module=device&action=alarmDetail&id="+id, {}, function(content) {
 		layer.open({
 			type : 1,
@@ -124,4 +125,5 @@ function showAlarmDetail(id){
 			content : content
 		});
 	});
+*/	
 }

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Config;
 use App\Http\Service\Log\SessionLog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -54,6 +54,11 @@ class DeviceController extends Controller
         return view('device.detail',compact('deviceDetail','devicePhysicInfo','hardDiskInfo','appData','capStatusInfo','capPosition','g4_data'));
     }
 
+    public function showDisplaceStatus() {
+        $config=new Config();
+        $result = $config->getCapReplaceValue();
+        return response()->json($result->var_value);
+    }
     /**
      * @param $mac
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View

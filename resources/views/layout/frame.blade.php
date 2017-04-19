@@ -27,5 +27,6 @@
 <script type="text/javascript" src='{{asset('/widget/axios.min.js')}}'></script>
 <script type="text/javascript" src='{{asset('/widget/jquery.i18n.properties.js')}}'></script>
 <script type="text/javascript" src="{{ asset('/layer/layer.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/js/status.js') }}"></script>
 @yield('footer')
 </html>

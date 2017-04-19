@@ -31,7 +31,7 @@
 			 <div class="Screening blockBox mtop10">
 				 <ul>
 					 <li id="transWayBox">
-						 <label>{{trans('content.Update mode')}}：</label>
+						 <label>{{trans('组网模式')}}：</label>
 						 <a href="#" class="on">
 							 <i id="1" class="{{$data->var_value?'checkbox':'checkbox_on'}}"></i>{{trans('并联')}}
 						 </a>

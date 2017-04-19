@@ -399,9 +399,10 @@ class Config extends Model
         return $result;
     }
 
-    public function getAllDeviceInfo()
+    public function getCapReplaceValue()
     {
-
+      $result= $this->getSystemIdByName("cap_replace");
+        return $result;
     }
 
     /**

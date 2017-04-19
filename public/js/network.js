@@ -45,12 +45,12 @@ function saveNetworkMode(){
             //提示错误信息
             layer.msg('修改失败', {icon: 2});
         }
-       // back();
+        back();
     }).catch(function (error) {
         console.log(error);
         //提示错误信息
         layer.msg('修改失败', {icon: 2});
-       // back();
+       back();
     });
 }
 

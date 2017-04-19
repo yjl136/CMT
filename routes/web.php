@@ -25,7 +25,7 @@ Route::get('/list','DeviceController@deviceList');
 Route::get('/common/error','CommonController@showError');
 Route::get('/common/progError','CommonController@showProgError');
 Route::get('/validate/mail','ConfigController@senderValidate');
-
+Route::get('/displaceStatus','DeviceController@showDisplaceStatus');
 /**
  * Config控制器中的一些操作
  */
@@ -91,6 +91,7 @@ Route::get('/progUpdate/queryProgVersion','UpgradeController@showQueryProgVersio
 Route::get('/progUpdate/startProgUpdate/{way}','UpgradeController@showStartProgUpdate');
 Route::get('/progUpdate/queryProgUpdateProgress/{way}','UpgradeController@showQueryProgUpdateProgress');
 Route::get('/progUpdate/cleanup','UpgradeController@showCleanup');
+
 
 /**
  * Data控制器中的一些操作

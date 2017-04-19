@@ -233,7 +233,7 @@ class Consts
 
 
     /********************************************socket配置*******************************************/
-    const DEFAULT_SOCKET_TIMEOUT = 90;// 默认socket超时时间
+    const DEFAULT_SOCKET_TIMEOUT = 20;// 默认socket超时时间
     const SOCKET_IP = '192.168.2.99';//定义socketIP
     //const SOCKET_IP = '127.0.0.1';//定义socketIP
     const SOCKET_PORT = '7890';//定义socket端口常
