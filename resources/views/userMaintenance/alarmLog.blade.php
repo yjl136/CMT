@@ -83,22 +83,22 @@
 			<ul>
 				<li id="dev_type">
 					<label>设备：</label>
-					<a href="#" class="on"><i class="checkbox_on" id="0"></i>全部</a>
+					<a href="#" class="on"><i class="checkbox_on" id="-1"></i>全部</a>
 					<a href="#" class="on"><i class="checkbox" id="4"></i>Server</a>
 					<a href="#" class="on"><i class="checkbox" id="15"></i>CAP</a>
 				</li>
 				<li id="alarm_level">
 					<label>级别：</label>
-					<a href="#" class="on"><i class="checkbox_on"></i>全部</a>
-					<a href="#" class="on"><i class="checkbox"></i>信息</a>
-					<a href="#" class="on"><i class="checkbox"></i>告警</a>
-					<a href="#" class="on"><i class="checkbox"></i>错误</a>
+					<a href="#" class="on"><i class="checkbox_on" id="-1"></i>全部</a>
+					<a href="#" class="on"><i class="checkbox" id="0"></i>信息</a>
+					<a href="#" class="on"><i class="checkbox" id="1"></i>告警</a>
+					<a href="#" class="on"><i class="checkbox" id="2"></i>错误</a>
 				</li>
 				<li id="clear_status">
 					<label>状态：</label>
-					<a href="#" class="on"><i class="checkbox_on"></i>全部</a>
-					<a href="#" class="on"><i class="checkbox"></i>当前告警</a>
-					<a href="#" class="on"><i class="checkbox"></i>历时告警</a>
+					<a href="#" class="on"><i class="checkbox_on" id="-1"></i>全部</a>
+					<a href="#" class="on"><i class="checkbox" id="0"></i>当前告警</a>
+					<a href="#" class="on"><i class="checkbox" id="1"></i>历时告警</a>
 				</li>
 				<li>
 					<label>时间：</label>
