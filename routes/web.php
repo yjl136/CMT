@@ -64,11 +64,12 @@ Route::get('/version','SystemController@version');
 /**
  * Syslog控制器中的一些操作
  */
-Route::get('/alarmLog','SyslogController@alarmLog');
+
+Route::get('/alarmLog/{dev_type?}/{alarm_level?}/{clear_status?}/{start_time?}/{end_time?}','SyslogController@alarmLog');
 Route::get('/dialLog','SyslogController@dialLog');
 Route::get('/flightLog','SyslogController@flightLog');
-Route::get('/operateLog','SyslogController@operateLog');
-Route::get('/runningLog','SyslogController@runningLog');
+Route::get('/operateLog/{content?}/{start_time?}/{end_time?}','SyslogController@operateLog');
+Route::get('/runningLog/{dev_type?}/{start_time?}/{end_time?}','SyslogController@runningLog');
 
 /**
  * Upgrade控制器中的一些操作

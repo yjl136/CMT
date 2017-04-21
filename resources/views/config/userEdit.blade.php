@@ -58,5 +58,6 @@
 
 
 @section('footer')
+    <script type="text/javascript" src='{{asset('/js/validator.js')}}'></script>
     <script type="text/javascript" src='{{asset('/js/user.js')}}'></script>
 @stop

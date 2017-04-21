@@ -43,16 +43,7 @@ function showSearchForm(){
 }
 
 function search(content, start_time, end_time){
-	var url = "index.php?group=system&menu=log&module=syslog&action=operateLog";
-	
-	if(content){
-		url += "&content=" + content;
-	}
-	if(start_time){
-		url += "&start_time=" + start_time;
-	}
-	if(end_time){
-		url += "&end_time=" + end_time;
-	}
+	//var url = "/CMT/public/operateLog?group=system&menu=log&module=syslog&action=operateLog";
+	var url = "/CMT/public/operateLog/"+content+"/"+start_time+"/"+end_time;
 	window.location.href = url;
 }

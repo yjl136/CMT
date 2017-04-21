@@ -123,7 +123,7 @@ to{-o-transform:rotate(360deg)}
 .menu_bottom .screen a i{ float: left; width:20px; height:18px; margin:18px 15px 0 0;  }
 .menu_bottom .screen a .lan{ background:url(../images/ico.png) no-repeat 0 -359px;}
 .menu_bottom .screen a .usb{ background:url(../images/ico_usb.png) no-repeat 0 0; width: 26px; }
-.menu_bottom .time{ width:380px; height:50px; margin:0 auto; text-align:center; line-height:50px; font-size:18px; color:#5d7185;} 
+.menu_bottom .time{ width:1280px; height:50px; margin:0 auto; text-align:center; line-height:50px; font-size:18px; color:#5d7185;}
 .message{ position:absolute; z-index:999; width:1280px; height:70px; top:0; background:url(../images/warn_bg.png) no-repeat 0 bottom; overflow:hidden;}
 .message_ror{ position:absolute; z-index:999; width:1280px; height:70px; top:0; background:url(../images/ror_bg.png) no-repeat 0 bottom; overflow:hidden;}
 .message .fix{ position:relative;}

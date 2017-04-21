@@ -275,5 +275,6 @@
 </div>
 <script type="text/javascript" src="{{ asset('/widget/jquery-3.1.1.min.js') }}"></script>
 <script type="text/javascript" src='{{asset('/widget/jquery.i18n.properties.js')}}'></script>
+<script type="text/javascript" src='{{asset('/js/devlist.js')}}'></script>
 </body>
 </html>

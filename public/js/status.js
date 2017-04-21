@@ -47,7 +47,7 @@ function queryStatus(){
 
 function queryDisplaceStatus(){
 	$.ajax({
-		url : '../public/displaceStatus',
+		url : '/CMT/public/displaceStatus',
 		success : function(data) {
 			if(data == '1'){
 				if(!displace_flag){

@@ -33,10 +33,10 @@
 					 <li id="transWayBox">
 						 <label>{{trans('组网模式')}}：</label>
 						 <a href="#" class="on">
-							 <i id="1" class="{{$data->var_value?'checkbox':'checkbox_on'}}"></i>{{trans('并联')}}
+							 <i id="0" class="{{$data->var_value?'checkbox':'checkbox_on'}}"></i>{{trans('并联')}}
 						 </a>
 						 <a href="#" class="on">
-							 <i id="4" class="{{$data->var_value?'checkbox_on':'checkbox'}}"></i>{{trans('串联')}}
+							 <i id="1" class="{{$data->var_value?'checkbox_on':'checkbox'}}"></i>{{trans('串联')}}
 						 </a>
 					 </li>
 				 </ul>

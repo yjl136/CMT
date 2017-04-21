@@ -25,8 +25,8 @@ class HomeController extends Controller
         $diagnose_message = $config->getDiagnoseMessage($diagnose_status); //得到WIFI的错误信息
         $message_list = $config->getTroubleMessageList($diagnose_status); //得到所有的错误提示信息
         $status = $config->getStatus();        //得到一些状态值以及参数值
-        $ftp_version = $config->getFtpVersion();  //得到ftp的最新版本
-        $ftp_version_flag = $config->getFtpVersionFlag();  //得到ftp是否显示新版本的标识
+       // $ftp_version = $config->getFtpVersion();  //得到ftp的最新版本
+        //$ftp_version_flag = $config->getFtpVersionFlag();  //得到ftp是否显示新版本的标识
         return view('home.login',compact('timeType','diagnose_message','message_list','status','ftp_version','ftp_version_flag'));
     }
 

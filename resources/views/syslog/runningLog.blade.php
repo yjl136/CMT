@@ -64,7 +64,7 @@
             <ul>
                 <li id="dev_type">
                     <label>设备：</label>
-                    <a href="#" class="on"><i class="checkbox_on" id="0"></i>全部</a>
+                    <a href="#" class="on"><i class="checkbox_on" id="-1"></i>全部</a>
                     <a href="#" class="on"><i class="checkbox" id="4"></i>Server</a>
                     <a href="#" class="on"><i class="checkbox" id="15"></i>CAP</a>
                 </li>

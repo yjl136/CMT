@@ -377,8 +377,8 @@ function updateNewVersion() {
                 var status_usb = 'usb_';
             }
             if (data.flag.var_value==0) {
-                document.getElementById('new_version').innerHTML = "<div class='time' style='color: #e90;'>"
-					+"有最新版本："
+                document.getElementById('new_version').innerHTML = "<div class='time' style='color: #e90;display: inline-block;text-align: center'>"
+					+"有最新版本:"
 					+data.version.var_value
 					+ "</div>"
 					+ "<div id='cur_time' class='time' style='display: none;'></div>"

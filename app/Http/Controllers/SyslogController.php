@@ -11,9 +11,9 @@ class SyslogController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * operate log
      */
-    public function operateLog(){
+    public function operateLog($content='',$start_time='',$end_time=''){
         $syslog = new Syslog;
-        $operateList = $syslog->getOperatePaginateData();
+        $operateList = $syslog->getOperatePaginateData($content,$start_time,$end_time);
         return view('syslog.operateLog',compact('operateList'));
     }
 
@@ -31,9 +31,9 @@ class SyslogController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * alarm log
      */
-    public function alarmLog(){
+    public function alarmLog($dev_type='', $alarm_level='', $clear_status='', $start_time='', $end_time=''){
         $syslog = new Syslog;
-        $alarmLogList = $syslog->getAlarmLogPaginateData();
+        $alarmLogList = $syslog->getAlarmLogPaginateData($dev_type, $alarm_level, $clear_status, $start_time, $end_time);
         return view('syslog.alarmLog',compact('alarmLogList'));
     }
 
@@ -41,9 +41,11 @@ class SyslogController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * running log
      */
-    public function runningLog(){
+    public function runningLog($dev_type='',$start_time='',$end_time=''){
+
+
         $syslog = new Syslog;
-        $runningList = $syslog->getRunningPaginateData();
+        $runningList = $syslog->getRunningPaginateData($dev_type,$start_time,$end_time);
         return view('syslog.runningLog',compact('runningList'));
     }
 
