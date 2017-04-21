@@ -148,10 +148,10 @@ class MaintenanceController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * operate log
      */
-    public function operateLog(){
+    public function operateLog($content='',$start_time='',$end_time=''){
         $syslog = new Syslog;
-        $operateList = $syslog->getOperatePaginateData();
-        return view('userMaintenance.operateLog',compact('operateList'));
+        $operateList = $syslog->getOperatePaginateData($content,$start_time,$end_time);
+        return view('syslog.operateLog',compact('operateList'));
     }
 
     /**
@@ -166,25 +166,28 @@ class MaintenanceController extends Controller
         return view('userMaintenance.dialLog',compact('dialList'));
     }
 
+
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * alarm log
      */
-    public function alarmLog(){
+    public function alarmLog($dev_type='', $alarm_level='', $clear_status='', $start_time='', $end_time=''){
         $syslog = new Syslog;
-        $alarmLogList = $syslog->getAlarmLogPaginateData();
-        return view('userMaintenance.alarmLog',compact('alarmLogList'));
+        $alarmLogList = $syslog->getAlarmLogPaginateData($dev_type, $alarm_level, $clear_status, $start_time, $end_time);
+        return view('syslog.alarmLog',compact('alarmLogList'));
     }
+
 
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * running log
      */
-    public function runningLog(){
+    public function runningLog($dev_type='',$start_time='',$end_time=''){
         $syslog = new Syslog;
-        $runningList = $syslog->getRunningPaginateData();
-        return view('userMaintenance.runningLog',compact('runningList'));
+        $runningList = $syslog->getRunningPaginateData($dev_type,$start_time,$end_time);
+        return view('syslog.runningLog',compact('runningList'));
     }
+
 
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View

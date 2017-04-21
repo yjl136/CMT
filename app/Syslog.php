@@ -63,7 +63,7 @@ class Syslog extends Model
     public function getAlarmLogPaginateData($dev_type, $alarm_level, $clear_status, $start_time, $end_time)
     {
         $result = null;
-        if (!empty($dev_type) && !empty($alarm_level) && !empty($clear_status) && !empty($start_time) && !empty($end_time)) {
+        if (!empty($start_time) && !empty($end_time)) {
             $dev_type_op = $dev_type == -1 ? '<>' : '=';
             $alarm_level_op = $alarm_level == -1 ? '<>' : '=';
             $clear_status_op = $clear_status == -1 ? '<>' : '=';
@@ -74,7 +74,7 @@ class Syslog extends Model
                 ->select('oam_alarmmessage.ID', 'oam_alarmmessage.AlarmOccurTime', 'oam_alarmmessage.AlarmLevel', 'oam_alarmmessage.AlarmExtendInfo', 'oam_alarmmessage.AlarmProbalCause', 'oam_alarmmessage.ClearFlag', 'oam_devicecategory.Name')
                 ->where('oam_device.DevType', $dev_type_op, $dev_type)
                 ->where('oam_alarmmessage.AlarmLevel', $alarm_level_op, $alarm_level)
-                ->where('oam_alarmmessage.ClearFlag', $clear_status_op, $alarm_level)
+                ->where('oam_alarmmessage.ClearFlag', $clear_status_op, $clear_status)
                 ->whereBetween('oam_alarmmessage.AlarmOccurTime', [$start_time, $end_time])
                 ->orderBy('oam_alarmmessage.AlarmOccurTime', 'desc')
                 ->paginate(8);

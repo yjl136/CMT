@@ -135,11 +135,11 @@ Route::get('/maintenance/progUpdate','MaintenanceController@progUpdate');
 Route::get('/maintenance/dataExport','MaintenanceController@dataExport');
 Route::get('/maintenance/autoExport','MaintenanceController@autoExport');
 Route::get('/maintenance/sysTest','MaintenanceController@sysTest');
-Route::get('/maintenance/alarmLog','MaintenanceController@alarmLog');
+Route::get('/maintenance/alarmLog/{dev_type?}/{alarm_level?}/{clear_status?}/{start_time?}/{end_time?}','MaintenanceController@alarmLog');
 Route::get('/maintenance/dialLog','MaintenanceController@dialLog');
 Route::get('/maintenance/flightLog','MaintenanceController@flightLog');
-Route::get('/maintenance/operateLog','MaintenanceController@operateLog');
-Route::get('/maintenance/runningLog','MaintenanceController@runningLog');
+Route::get('/maintenance/operateLog/{content?}/{start_time?}/{end_time?}','MaintenanceController@operateLog');
+Route::get('/maintenance/runningLog/{dev_type?}/{start_time?}/{end_time?}','MaintenanceController@runningLog');
 Route::get('/maintenance/version','MaintenanceController@version');
 
 
