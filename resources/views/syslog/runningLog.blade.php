@@ -38,7 +38,7 @@
                 <th>{{trans('content.Param Value')}}</th>
                 <th class="filterBox">
                     <span>{{trans('content.Time')}}</span>
-                    <a href="#" onclick="showSearchForm();">
+                    <a href="#" onclick="showSearchForm('super');">
                         <i class="icoFilter"></i>{{trans('button.Filter')}}
                     </a>
                 </th>

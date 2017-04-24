@@ -15,7 +15,7 @@ $(function(){
 	});
 });
 
-function showSearchForm(){
+function showSearchForm(flag){
 	layer.open({
 		type: 1,
 		shade: [0.5, "#000"],
@@ -44,7 +44,7 @@ function showSearchForm(){
 			var start_time = $("#start_time").val();
 			var end_time = $("#end_time").val();
 
-			search(dev_type, alarm_level, clear_status, start_time, end_time);
+			search(flag,dev_type, alarm_level, clear_status, start_time, end_time);
 
 			layer.close(index);
 			return false;
@@ -64,8 +64,13 @@ function showSearchForm(){
 	});
 }
 
-function search(dev_type, alarm_level, clear_status, start_time, end_time){
-	var url = "/CMT/public/alarmLog/"+dev_type+"/"+alarm_level+"/"+clear_status+"/"+start_time+"/"+end_time;
+function search(flag,dev_type, alarm_level, clear_status, start_time, end_time){
+	var url = "";
+	if(flag=='super'){
+		 url = "/CMT/public/alarmLog/"+dev_type+"/"+alarm_level+"/"+clear_status+"/"+start_time+"/"+end_time;
+	}else{
+		 url = "/CMT/public/maintenance/alarmLog/"+dev_type+"/"+alarm_level+"/"+clear_status+"/"+start_time+"/"+end_time;
+	}
 	window.location.href = url;
 }
 

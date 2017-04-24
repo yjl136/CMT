@@ -36,7 +36,7 @@
 				<th>{{trans('content.Alarm Level')}}</th>
 				<th class="filterBox">
 					<span>{{trans('content.Alarm Content')}}</span>
-					<a href="#" onclick="showSearchForm();">
+					<a href="#" onclick="showSearchForm('super');">
 						<i class="icoFilter"></i>{{trans('button.Filter')}}
 					</a>
 				</th>

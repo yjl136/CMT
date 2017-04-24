@@ -37,7 +37,7 @@
                 <th>{{trans('参数值')}}</th>
                 <th class="filterBox">
                     <span>{{trans('时间')}}</span>
-                    <a href="#" onclick="showSearchForm();">
+                    <a href="#" onclick="showSearchForm('maintenance');">
                         <i class="icoFilter"></i>{{trans('筛选')}}
                     </a>
                 </th>

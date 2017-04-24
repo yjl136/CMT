@@ -93,13 +93,31 @@ class Syslog extends Model
      * @return mixed
      * 根据设备ID查询到所有的警告日志内容
      */
-    public function getDeviceAlarmLogPaginateData($mac)
+    public function getDeviceAlarmLogPaginateData($mac, $alarm_level, $clear_status, $start_time, $end_time)
     {
-        $result = DB::table('oam_alarmmessage')
-            ->where('oam_alarmmessage.DeviceID', '=', $mac)
-            ->select('oam_alarmmessage.ID', 'oam_alarmmessage.DeviceID', 'oam_alarmmessage.AlarmOccurTime', 'oam_alarmmessage.AlarmLevel', 'oam_alarmmessage.AlarmExtendInfo', 'oam_alarmmessage.AlarmProbalCause', 'oam_alarmmessage.ClearFlag')
-            ->orderBy('oam_alarmmessage.AlarmOccurTime', 'desc')
-            ->paginate(8);
+        $result = null;
+        if (!empty($start_time) && !empty($end_time)) {
+            $alarm_level_op = $alarm_level == -1 ? '<>' : '=';
+            $clear_status_op = $clear_status == -1 ? '<>' : '=';
+            $result = DB::table('oam_alarmmessage')
+                ->join('oam_device', 'oam_alarmmessage.DeviceID', '=', 'oam_device.DevID')
+                ->join('oam_devicecategory', 'oam_device.DevType', '=', 'oam_devicecategory.Type')
+                ->select('oam_alarmmessage.ID', 'oam_alarmmessage.AlarmOccurTime', 'oam_alarmmessage.AlarmLevel', 'oam_alarmmessage.AlarmExtendInfo', 'oam_alarmmessage.AlarmProbalCause', 'oam_alarmmessage.ClearFlag', 'oam_devicecategory.Name')
+                ->where('oam_alarmmessage.DeviceID', '=', $mac)
+                ->where('oam_alarmmessage.AlarmLevel', $alarm_level_op, $alarm_level)
+                ->where('oam_alarmmessage.ClearFlag', $clear_status_op, $clear_status)
+                ->whereBetween('oam_alarmmessage.AlarmOccurTime', [$start_time, $end_time])
+                ->orderBy('oam_alarmmessage.AlarmOccurTime', 'desc')
+                ->paginate(8);
+        } else {
+            $result = DB::table('oam_alarmmessage')
+                ->join('oam_device', 'oam_alarmmessage.DeviceID', '=', 'oam_device.DevID')
+                ->join('oam_devicecategory', 'oam_device.DevType', '=', 'oam_devicecategory.Type')
+                ->select('oam_alarmmessage.ID', 'oam_alarmmessage.AlarmOccurTime', 'oam_alarmmessage.AlarmLevel', 'oam_alarmmessage.AlarmExtendInfo', 'oam_alarmmessage.AlarmProbalCause', 'oam_alarmmessage.ClearFlag', 'oam_devicecategory.Name')
+                ->where('oam_alarmmessage.DeviceID', '=', $mac)
+                ->orderBy('oam_alarmmessage.AlarmOccurTime', 'desc')
+                ->paginate(8);
+        }
         return $result;
     }
 
@@ -109,6 +127,8 @@ class Syslog extends Model
      */
     public function getRunningPaginateData($dev_type, $start_time, $end_time)
     {
+
+
         $result = null;
         if (!empty($dev_type) && !empty($start_time) && !empty($end_time)) {
             $dev_type_op = $dev_type == -1 ? '<>' : '=';

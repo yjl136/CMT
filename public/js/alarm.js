@@ -9,7 +9,7 @@ $(function(){
 	});
 });
 
-function showSearchForm(){
+function showSearchForm(mac,flag){
 	layer.open({
 	    type: 1,
 	    shade: [0.5, "#000"],
@@ -31,15 +31,13 @@ function showSearchForm(){
 	    		showFieldError("开始时间不能晚于结束时间", $("#end_time"));
 	    		return false;
 	    	}
-	    	
-	    	var dev_id = $("#dev_id").val();
-	    	var dev_type = $("#dev_type").val();
+
 	    	var clear_status = getClearStatus();
 	    	var alarm_level = getAlarmLevel();
 	    	var start_time = $("#start_time").val();
 	    	var end_time = $("#end_time").val();
 	    	
-	    	search(dev_id, dev_type, alarm_level, clear_status, start_time, end_time);
+	    	search(mac,flag,alarm_level, clear_status, start_time, end_time);
 	    	
 	    	layer.close(index);
 	    	return false;
@@ -59,27 +57,14 @@ function showSearchForm(){
 	});
 }
 
-function search(dev_id, dev_type, alarm_level, clear_status, start_time, end_time){
-	var url = getUrl();
-	
-	if(dev_id){
-		url += "&dev_id=" + dev_id;
+function search(mac,flag,alarm_level, clear_status, start_time, end_time){
+	var url = "";
+	if(flag=="super"){
+		 url = "/CMT/public/showDevice/"+mac+"/alarm/"+alarm_level+"/"+clear_status+"/"+start_time+"/"+end_time;
+	}else{
+		url = "/CMT/public/maintenance/showDevice/"+mac+"/alarm/"+alarm_level+"/"+clear_status+"/"+start_time+"/"+end_time;
 	}
-	if(dev_type){
-		url += "&dev_type=" + dev_type;
-	}
-	if(alarm_level){
-		url += "&alarm_level=" + alarm_level;
-	}
-	if(clear_status != null){
-		url += "&clear_status=" + clear_status;
-	}
-	if(start_time){
-		url += "&start_time=" + start_time;
-	}
-	if(end_time){
-		url += "&end_time=" + end_time;
-	}
+
 	window.location.href = url;
 }
 
@@ -87,7 +72,7 @@ function getAlarmLevel(){
 	var alarm_level = 0;
 	$("#alarm_level a i").each(function(index){
 		if(this.className == "checkbox_on"){
-			alarm_level = index;
+			alarm_level = this.id;
 		}
 	});
 	return alarm_level;
@@ -97,7 +82,7 @@ function getClearStatus(){
 	var clear_status = null;
 	$("#clear_status a i").each(function(index){
 		if(this.className == "checkbox_on"){
-			clear_status = index;
+			clear_status = this.id;
 		}
 	});
 	return clear_status;

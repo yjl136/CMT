@@ -64,12 +64,12 @@ class DeviceController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * 分页取出设备警告信息,以及根据mac地址查出设备名称
      */
-    public function deviceAlarmInfo($mac)
+    public function deviceAlarmInfo($mac, $alarm_level='', $clear_status='', $start_time='', $end_time='')
     {
         $device = new Device();
         $deviceDetail = $device->getDeviceDetailByMac($mac);
         $device = new Syslog();
-        $deviceAlarmData = $device->getDeviceAlarmLogPaginateData($mac);
+        $deviceAlarmData = $device->getDeviceAlarmLogPaginateData($mac, $alarm_level, $clear_status, $start_time, $end_time);
         return view('device.alarmInfo',compact('deviceDetail','deviceAlarmData'));
     }
 

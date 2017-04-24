@@ -10,7 +10,7 @@ $(function(){
 	});
 });
 
-function showSearchForm(){
+function showSearchForm(flag){
 	layer.open({
 		type: 1,
 		shade: [0.5, "#000"],
@@ -38,7 +38,7 @@ function showSearchForm(){
 			var start_time = $("#start_time").val();
 			var end_time = $("#end_time").val();
 
-			search(dev_type, start_time, end_time);
+			search(flag,dev_type, start_time, end_time);
 
 			layer.close(index);
 		},
@@ -58,8 +58,13 @@ function showSearchForm(){
 	return false;
 }
 
-function search(dev_type, start_time, end_time){
-	var url ="/CMT/public/runningLog/"+dev_type+"/"+start_time+"/"+end_time;
+function search(flag,dev_type, start_time, end_time){
+	var url ="";
+	if(flag=='super'){
+		 url ="/CMT/public/runningLog/"+dev_type+"/"+start_time+"/"+end_time;
+	}else{
+		 url ="/CMT/public/maintenance/runningLog/"+dev_type+"/"+start_time+"/"+end_time;
+	}
 	window.location.href = url;
 }
 

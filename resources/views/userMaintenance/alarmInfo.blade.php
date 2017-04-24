@@ -59,7 +59,7 @@
                     <th>{{trans('content.Alarm Level')}}</th>
                     <th class="filterBox">
                         <span>{{trans('content.Alarm Content')}}</span>
-                        <a href="#" onclick="showSearchForm();">
+                        <a href="#" onclick="{{"showSearchForm('$deviceDetail->DevID','maintenance');"}}">
                             <i class="icoFilter"></i>{{trans('button.Filter')}}
                         </a>
                     </th>
@@ -104,12 +104,7 @@
     <div id="searchForm" class="hidden">
         <div class="Screening mtop10">
             <ul>
-                <li id="dev_type">
-                    <label>设备：</label>
-                    <a href="#" class="on"><i class="checkbox_on" id="-1"></i>全部</a>
-                    <a href="#" class="on"><i class="checkbox" id="4"></i>Server</a>
-                    <a href="#" class="on"><i class="checkbox" id="15"></i>CAP</a>
-                </li>
+
                 <li id="alarm_level">
                     <label>级别：</label>
                     <a href="#" class="on"><i class="checkbox_on" id="-1"></i>全部</a>

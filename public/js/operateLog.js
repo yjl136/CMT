@@ -1,5 +1,5 @@
 
-function showSearchForm(){
+function showSearchForm(flag){
 	layer.open({
 		type: 1,
 		skin: 'layui-layer-rim', //加上边框
@@ -23,7 +23,7 @@ function showSearchForm(){
 			var content = $("#content").val();
 			var start_time = $("#start_time").val();
 			var end_time = $("#end_time").val();
-			search(content, start_time, end_time);
+			search(flag,content, start_time, end_time);
 			layer.close(index);
 			return false;
 		},
@@ -42,8 +42,13 @@ function showSearchForm(){
 	});
 }
 
-function search(content, start_time, end_time){
+function search(flag,content, start_time, end_time){
 	//var url = "/CMT/public/operateLog?group=system&menu=log&module=syslog&action=operateLog";
-	var url = "/CMT/public/operateLog/"+content+"/"+start_time+"/"+end_time;
+	var url = "";
+	if(flag=="super"){
+		 url = "/CMT/public/operateLog/"+content+"/"+start_time+"/"+end_time;
+	}else{
+		 url = "/CMT/public/maintenance/operateLog/"+content+"/"+start_time+"/"+end_time;
+	}
 	window.location.href = url;
 }

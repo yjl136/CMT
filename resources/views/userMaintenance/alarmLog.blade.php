@@ -35,7 +35,7 @@
 				<th>{{trans('告警级别')}}</th>
 				<th class="filterBox">
 					<span>{{trans('告警内容')}}</span>
-					<a href="#" onclick="showSearchForm();">
+					<a href="#" onclick="showSearchForm('maintenance');">
 						<i class="icoFilter"></i>{{trans('筛选')}}
 					</a>
 				</th>
