@@ -69,19 +69,19 @@
                     <td>{{$deviceDetail->Name}}</td>
                     <td>
                         <span class="label
-					    @if ($alarmData->AlarmLevel === 1)
+					    @if ($alarmData->AlarmLevel === 0)
                                 label-info
-                        @elseif ($alarmData->AlarmLevel === 2)
+                        @elseif ($alarmData->AlarmLevel === 1)
                                 label-alert
-                        @elseif ($alarmData->AlarmLevel === 3)
+                        @elseif ($alarmData->AlarmLevel === 2)
                                 label-danger
                         @else
                         @endif">
-						@if ($alarmData->AlarmLevel === 1)
+						@if ($alarmData->AlarmLevel === 0)
                                 {{trans('button.Info')}}
-                            @elseif ($alarmData->AlarmLevel === 2)
+                            @elseif ($alarmData->AlarmLevel === 1)
                                 {{trans('button.Alarm')}}
-                            @elseif ($alarmData->AlarmLevel === 3)
+                            @elseif ($alarmData->AlarmLevel === 2)
                                 {{trans('button.Error')}}
                             @else
 

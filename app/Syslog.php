@@ -16,10 +16,14 @@ class Syslog extends Model
     {
         $result = null;
         if (!empty($content) && !empty($start_time) && !empty($end_time)) {
-            $result = DB::table('cmt_operate')
-                ->whereBetween('operate_time', [$start_time, $end_time])
-                ->where('comment', 'like', "%$content%")
-                ->orderBy('operate_time', 'desc')
+            $db = DB::table('cmt_operate');
+            if ($start_time != 'start_time' && $end_time != 'end_time') {
+                $db = $db->whereBetween('operate_time', [$start_time, $end_time]);
+            }
+            if ($content != 'all') {
+                $db = $db->where('comment', 'like', "%$content%");
+            }
+            $result = $db->orderBy('operate_time', 'desc')
                 ->paginate(8);
         } else {
             $result = DB::table('cmt_operate')
@@ -67,17 +71,29 @@ class Syslog extends Model
             $dev_type_op = $dev_type == -1 ? '<>' : '=';
             $alarm_level_op = $alarm_level == -1 ? '<>' : '=';
             $clear_status_op = $clear_status == -1 ? '<>' : '=';
+            if ($start_time == 'start_time' && $end_time == 'end_time') {
+                $result = DB::table('oam_alarmmessage')
+                    ->join('oam_device', 'oam_alarmmessage.DeviceID', '=', 'oam_device.DevID')
+                    ->join('oam_devicecategory', 'oam_device.DevType', '=', 'oam_devicecategory.Type')
+                    ->select('oam_alarmmessage.ID', 'oam_alarmmessage.AlarmOccurTime', 'oam_alarmmessage.AlarmLevel', 'oam_alarmmessage.AlarmExtendInfo', 'oam_alarmmessage.AlarmProbalCause', 'oam_alarmmessage.ClearFlag', 'oam_devicecategory.Name')
+                    ->where('oam_device.DevType', $dev_type_op, $dev_type)
+                    ->where('oam_alarmmessage.AlarmLevel', $alarm_level_op, $alarm_level)
+                    ->where('oam_alarmmessage.ClearFlag', $clear_status_op, $clear_status)
+                    ->orderBy('oam_alarmmessage.AlarmOccurTime', 'desc')
+                    ->paginate(8);
+            } else {
+                $result = DB::table('oam_alarmmessage')
+                    ->join('oam_device', 'oam_alarmmessage.DeviceID', '=', 'oam_device.DevID')
+                    ->join('oam_devicecategory', 'oam_device.DevType', '=', 'oam_devicecategory.Type')
+                    ->select('oam_alarmmessage.ID', 'oam_alarmmessage.AlarmOccurTime', 'oam_alarmmessage.AlarmLevel', 'oam_alarmmessage.AlarmExtendInfo', 'oam_alarmmessage.AlarmProbalCause', 'oam_alarmmessage.ClearFlag', 'oam_devicecategory.Name')
+                    ->where('oam_device.DevType', $dev_type_op, $dev_type)
+                    ->where('oam_alarmmessage.AlarmLevel', $alarm_level_op, $alarm_level)
+                    ->where('oam_alarmmessage.ClearFlag', $clear_status_op, $clear_status)
+                    ->whereBetween('oam_alarmmessage.AlarmOccurTime', [$start_time, $end_time])
+                    ->orderBy('oam_alarmmessage.AlarmOccurTime', 'desc')
+                    ->paginate(8);
+            }
 
-            $result = DB::table('oam_alarmmessage')
-                ->join('oam_device', 'oam_alarmmessage.DeviceID', '=', 'oam_device.DevID')
-                ->join('oam_devicecategory', 'oam_device.DevType', '=', 'oam_devicecategory.Type')
-                ->select('oam_alarmmessage.ID', 'oam_alarmmessage.AlarmOccurTime', 'oam_alarmmessage.AlarmLevel', 'oam_alarmmessage.AlarmExtendInfo', 'oam_alarmmessage.AlarmProbalCause', 'oam_alarmmessage.ClearFlag', 'oam_devicecategory.Name')
-                ->where('oam_device.DevType', $dev_type_op, $dev_type)
-                ->where('oam_alarmmessage.AlarmLevel', $alarm_level_op, $alarm_level)
-                ->where('oam_alarmmessage.ClearFlag', $clear_status_op, $clear_status)
-                ->whereBetween('oam_alarmmessage.AlarmOccurTime', [$start_time, $end_time])
-                ->orderBy('oam_alarmmessage.AlarmOccurTime', 'desc')
-                ->paginate(8);
         } else {
             $result = DB::table('oam_alarmmessage')
                 ->join('oam_device', 'oam_alarmmessage.DeviceID', '=', 'oam_device.DevID')
@@ -99,16 +115,28 @@ class Syslog extends Model
         if (!empty($start_time) && !empty($end_time)) {
             $alarm_level_op = $alarm_level == -1 ? '<>' : '=';
             $clear_status_op = $clear_status == -1 ? '<>' : '=';
-            $result = DB::table('oam_alarmmessage')
-                ->join('oam_device', 'oam_alarmmessage.DeviceID', '=', 'oam_device.DevID')
-                ->join('oam_devicecategory', 'oam_device.DevType', '=', 'oam_devicecategory.Type')
-                ->select('oam_alarmmessage.ID', 'oam_alarmmessage.AlarmOccurTime', 'oam_alarmmessage.AlarmLevel', 'oam_alarmmessage.AlarmExtendInfo', 'oam_alarmmessage.AlarmProbalCause', 'oam_alarmmessage.ClearFlag', 'oam_devicecategory.Name')
-                ->where('oam_alarmmessage.DeviceID', '=', $mac)
-                ->where('oam_alarmmessage.AlarmLevel', $alarm_level_op, $alarm_level)
-                ->where('oam_alarmmessage.ClearFlag', $clear_status_op, $clear_status)
-                ->whereBetween('oam_alarmmessage.AlarmOccurTime', [$start_time, $end_time])
-                ->orderBy('oam_alarmmessage.AlarmOccurTime', 'desc')
-                ->paginate(8);
+            if ($start_time == 'start_time' && $end_time == 'end_time') {
+                $result = DB::table('oam_alarmmessage')
+                    ->join('oam_device', 'oam_alarmmessage.DeviceID', '=', 'oam_device.DevID')
+                    ->join('oam_devicecategory', 'oam_device.DevType', '=', 'oam_devicecategory.Type')
+                    ->select('oam_alarmmessage.ID', 'oam_alarmmessage.AlarmOccurTime', 'oam_alarmmessage.AlarmLevel', 'oam_alarmmessage.AlarmExtendInfo', 'oam_alarmmessage.AlarmProbalCause', 'oam_alarmmessage.ClearFlag', 'oam_devicecategory.Name')
+                    ->where('oam_alarmmessage.DeviceID', '=', $mac)
+                    ->where('oam_alarmmessage.AlarmLevel', $alarm_level_op, $alarm_level)
+                    ->where('oam_alarmmessage.ClearFlag', $clear_status_op, $clear_status)
+                    ->orderBy('oam_alarmmessage.AlarmOccurTime', 'desc')
+                    ->paginate(8);
+            } else {
+                $result = DB::table('oam_alarmmessage')
+                    ->join('oam_device', 'oam_alarmmessage.DeviceID', '=', 'oam_device.DevID')
+                    ->join('oam_devicecategory', 'oam_device.DevType', '=', 'oam_devicecategory.Type')
+                    ->select('oam_alarmmessage.ID', 'oam_alarmmessage.AlarmOccurTime', 'oam_alarmmessage.AlarmLevel', 'oam_alarmmessage.AlarmExtendInfo', 'oam_alarmmessage.AlarmProbalCause', 'oam_alarmmessage.ClearFlag', 'oam_devicecategory.Name')
+                    ->where('oam_alarmmessage.DeviceID', '=', $mac)
+                    ->where('oam_alarmmessage.AlarmLevel', $alarm_level_op, $alarm_level)
+                    ->where('oam_alarmmessage.ClearFlag', $clear_status_op, $clear_status)
+                    ->whereBetween('oam_alarmmessage.AlarmOccurTime', [$start_time, $end_time])
+                    ->orderBy('oam_alarmmessage.AlarmOccurTime', 'desc')
+                    ->paginate(8);
+            }
         } else {
             $result = DB::table('oam_alarmmessage')
                 ->join('oam_device', 'oam_alarmmessage.DeviceID', '=', 'oam_device.DevID')
@@ -128,20 +156,32 @@ class Syslog extends Model
     public function getRunningPaginateData($dev_type, $start_time, $end_time)
     {
 
-
         $result = null;
         if (!empty($dev_type) && !empty($start_time) && !empty($end_time)) {
             $dev_type_op = $dev_type == -1 ? '<>' : '=';
-            $result = DB::table('oam_monitorparam')
-                ->join('oam_application', 'oam_monitorparam.ApplicationID', '=', 'oam_application.ID')
-                ->join('oam_paramtype', 'oam_monitorparam.ParamType', '=', 'oam_paramtype.ID')
-                ->join('oam_monitorparamvalue', 'oam_monitorparam.ID', '=', 'oam_monitorparamvalue.ParamID')
-                ->join('oam_devicecategory', 'oam_application.CategoryID', '=', 'oam_devicecategory.Type')
-                ->select('oam_devicecategory.Name', 'oam_application.AppName', 'oam_monitorparamvalue.CreateTime', 'oam_monitorparamvalue.ParamValue', 'oam_application.AppType', 'oam_paramtype.TypeName', 'oam_paramtype.Descs')
-                ->where('oam_devicecategory.Type', $dev_type_op, $dev_type)
-                ->whereBetween('oam_monitorparamvalue.CreateTime', [$start_time, $end_time])
-                ->orderBy('oam_monitorparamvalue.CreateTime', 'desc')
-                ->paginate(8);
+            if ($start_time == 'start_time' && $end_time == 'end_time') {
+                $result = DB::table('oam_monitorparam')
+                    ->join('oam_application', 'oam_monitorparam.ApplicationID', '=', 'oam_application.ID')
+                    ->join('oam_paramtype', 'oam_monitorparam.ParamType', '=', 'oam_paramtype.ID')
+                    ->join('oam_monitorparamvalue', 'oam_monitorparam.ID', '=', 'oam_monitorparamvalue.ParamID')
+                    ->join('oam_devicecategory', 'oam_application.CategoryID', '=', 'oam_devicecategory.Type')
+                    ->select('oam_devicecategory.Name', 'oam_application.AppName', 'oam_monitorparamvalue.CreateTime', 'oam_monitorparamvalue.ParamValue', 'oam_application.AppType', 'oam_paramtype.TypeName', 'oam_paramtype.Descs')
+                    ->where('oam_devicecategory.Type', $dev_type_op, $dev_type)
+                    ->orderBy('oam_monitorparamvalue.CreateTime', 'desc')
+                    ->paginate(8);
+            } else {
+                $result = DB::table('oam_monitorparam')
+                    ->join('oam_application', 'oam_monitorparam.ApplicationID', '=', 'oam_application.ID')
+                    ->join('oam_paramtype', 'oam_monitorparam.ParamType', '=', 'oam_paramtype.ID')
+                    ->join('oam_monitorparamvalue', 'oam_monitorparam.ID', '=', 'oam_monitorparamvalue.ParamID')
+                    ->join('oam_devicecategory', 'oam_application.CategoryID', '=', 'oam_devicecategory.Type')
+                    ->select('oam_devicecategory.Name', 'oam_application.AppName', 'oam_monitorparamvalue.CreateTime', 'oam_monitorparamvalue.ParamValue', 'oam_application.AppType', 'oam_paramtype.TypeName', 'oam_paramtype.Descs')
+                    ->where('oam_devicecategory.Type', $dev_type_op, $dev_type)
+                    ->whereBetween('oam_monitorparamvalue.CreateTime', [$start_time, $end_time])
+                    ->orderBy('oam_monitorparamvalue.CreateTime', 'desc')
+                    ->paginate(8);
+            }
+
         } else {
             $result = DB::table('oam_monitorparam')
                 ->join('oam_application', 'oam_monitorparam.ApplicationID', '=', 'oam_application.ID')

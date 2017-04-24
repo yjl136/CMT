@@ -19,26 +19,26 @@ function showSearchForm(mac,flag){
 	    content: $('#searchForm'),
 	    btn:["查询", "取消"],
 	    btn1:function(index){
-	    	if(!validateField($("#start_time"), "datetime")){
-	    		return false;
-	    	}
-	    	
-	    	if(!validateField($("#end_time"), "datetime")){
-	    		return false;
-	    	}
-	    	
-	    	if($("#start_time").val() > $("#end_time").val()){
-	    		showFieldError("开始时间不能晚于结束时间", $("#end_time"));
-	    		return false;
-	    	}
-
+			var start_time = $("#start_time").val();
+			var end_time = $("#end_time").val();
+			if (start_time != '' && end_time != '') {
+				if (!validateField($("#start_time"), "datetime")) {
+					return false;
+				}
+				if (!validateField($("#end_time"), "datetime")) {
+					return false;
+				}
+				if ($("#start_time").val() > $("#end_time").val()) {
+					showFieldError("开始时间不能晚于结束时间"), $("#end_time");
+					return false;
+				}
+			} else {
+				start_time = 'start_time';
+				end_time = 'end_time';
+			}
 	    	var clear_status = getClearStatus();
 	    	var alarm_level = getAlarmLevel();
-	    	var start_time = $("#start_time").val();
-	    	var end_time = $("#end_time").val();
-	    	
 	    	search(mac,flag,alarm_level, clear_status, start_time, end_time);
-	    	
 	    	layer.close(index);
 	    	return false;
 	    },

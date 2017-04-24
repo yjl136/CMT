@@ -45,19 +45,19 @@
 				<td>{{$alarmLog->Name}}</td>
 				<td>
 					<span class="label
-					@if ($alarmLog->AlarmLevel === 1)
+					@if ($alarmLog->AlarmLevel === 0)
 							label-info
-                    @elseif ($alarmLog->AlarmLevel === 2)
+                    @elseif ($alarmLog->AlarmLevel === 1)
 							label-alert
-                    @elseif ($alarmLog->AlarmLevel === 3)
+                    @elseif ($alarmLog->AlarmLevel === 2)
 							label-danger
                     @else
 					@endif">
-						@if ($alarmLog->AlarmLevel === 1)
+						@if ($alarmLog->AlarmLevel === 0)
 							{{trans('信息')}}
-						@elseif ($alarmLog->AlarmLevel === 2)
+						@elseif ($alarmLog->AlarmLevel === 1)
 							{{trans('警告')}}
-						@elseif ($alarmLog->AlarmLevel === 3)
+						@elseif ($alarmLog->AlarmLevel === 2)
 							{{trans('错误')}}
 						@else
 

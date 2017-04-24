@@ -89,7 +89,6 @@ class MaintenanceController extends Controller
     }
 
     public function biteResult($mac) {
-
         $device = new Device();
         $deviceDetail = $device->getDeviceDetailByMac($mac);
         if ($deviceDetail->Name == 'Server'){

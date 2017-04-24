@@ -56,23 +56,43 @@ class Device extends Model
             switch ($key)
             {
                 case "4-11-3":
-                    $result["free_cpu"] = $format::formatPercentage($devicePhysicInfo["4-11-3"]->ParamValue);
+                    if(isset($devicePhysicInfo["4-11-3"])){
+                        $result["free_cpu"] = $format::formatPercentage($devicePhysicInfo["4-11-3"]->ParamValue);
+                    }else{
+                        $result["free_cpu"]='N/A';
+                    }
                     break;
                 case "4-11-4":
-                    $result["total_memory"] = $format::formatDiskText($devicePhysicInfo["4-11-4"]->ParamValue);
+                    if($devicePhysicInfo["4-11-4"]){
+                        $result["total_memory"] = $format::formatDiskText($devicePhysicInfo["4-11-4"]->ParamValue);
+                    }else{
+                        $result["total_memory"] ='N/A';
+                    }
+
                     break;
                 case "4-11-5":
-                    $result["free_memory"] = $format::formatDiskText($devicePhysicInfo["4-11-5"]->ParamValue);
+                    if($devicePhysicInfo["4-11-5"]){
+                        $result["free_memory"] = $format::formatDiskText($devicePhysicInfo["4-11-5"]->ParamValue);
+                    }else{
+                        $result["free_memory"] ='N/A';
+                    }
+
                     break;
                 case "4-12-6":
-                    $result["cpu_temperature"] = $format::formatTemperature($devicePhysicInfo["4-12-6"]->ParamValue);
+                    if($devicePhysicInfo["4-12-6"]){
+                        $result["cpu_temperature"] = $format::formatTemperature($devicePhysicInfo["4-12-6"]->ParamValue);
+                    }else{
+                        $result["cpu_temperature"] ='N/A';
+                    }
+
                     break;
                 case "4-12-7":
-                    if (isset($devicePhysicInfo["4-12-7"])) {
+                    if(isset($devicePhysicInfo["4-12-7"])){
                         $result["system_temperature"] = $format::formatTemperature($devicePhysicInfo["4-12-7"]->ParamValue);
-                    } else {
-                        $result["system_temperature"] = $format::formatTemperature($devicePhysicInfo["4-12-6"]->ParamValue - 2);
-                    }                    
+                    }else{
+                        $result["cpu_temperature"] ='N/A';
+                    }
+
                     break;
                 default:
                     $result = '';
@@ -107,53 +127,119 @@ class Device extends Model
             switch ($key)
             {
                 case "/":
-                    $result[] = array(  "partion" => $hardDiskInfo['/']->Partion,
-                        "avail" => $format::formatDiskText($hardDiskInfo['/']->DiskAvail),
-                        "total" => $format::formatDiskText($hardDiskInfo['/']->DiskTotal),
-                        "percent" => $format::formatPercentage($hardDiskInfo['/']->DiskPercent)
-                    );
+                    if(isset($hardDiskInfo['/'])){
+                        $result[] = array(  "partion" => $hardDiskInfo['/']->Partion,
+                            "avail" => $format::formatDiskText($hardDiskInfo['/']->DiskAvail),
+                            "total" => $format::formatDiskText($hardDiskInfo['/']->DiskTotal),
+                            "percent" => $format::formatPercentage($hardDiskInfo['/']->DiskPercent)
+                        );
+                    }else{
+                        $result[] = array(  "partion" => '/',
+                            "avail" => '0',
+                            "total" => '0',
+                            "percent" =>'0'
+                        );
+                    }
                     break;
                 case "/opt":
-                    $result[] = array(  "partion" => $hardDiskInfo['/opt']->Partion,
-                        "avail" => $format::formatDiskText($hardDiskInfo['/opt']->DiskAvail),
-                        "total" => $format::formatDiskText($hardDiskInfo['/opt']->DiskTotal),
-                        "percent" => $format::formatPercentage($hardDiskInfo['/opt']->DiskPercent)
-                    );
+                    if(isset($hardDiskInfo['/opt'])){
+                        $result[] = array(  "partion" => $hardDiskInfo['/opt']->Partion,
+                            "avail" => $format::formatDiskText($hardDiskInfo['/opt']->DiskAvail),
+                            "total" => $format::formatDiskText($hardDiskInfo['/opt']->DiskTotal),
+                            "percent" => $format::formatPercentage($hardDiskInfo['/opt']->DiskPercent)
+                        );
+                    }else{
+                        $result[] = array(
+                            "partion" => '/opt',
+                            "avail" => '0',
+                            "total" => '0',
+                            "percent" =>'0'
+                        );
+                    }
                     break;
                 case "/boot":
-                    $result[] = array(  "partion" => $hardDiskInfo['/boot']->Partion,
-                        "avail" => $format::formatDiskText($hardDiskInfo['/boot']->DiskAvail),
-                        "total" => $format::formatDiskText($hardDiskInfo['/boot']->DiskTotal),
-                        "percent" => $format::formatPercentage($hardDiskInfo['/boot']->DiskPercent)
-                    );
+                    if(isset($hardDiskInfo['/boot'])){
+                        $result[] = array(  "partion" => $hardDiskInfo['/boot']->Partion,
+                            "avail" => $format::formatDiskText($hardDiskInfo['/boot']->DiskAvail),
+                            "total" => $format::formatDiskText($hardDiskInfo['/boot']->DiskTotal),
+                            "percent" => $format::formatPercentage($hardDiskInfo['/boot']->DiskPercent)
+                        );
+                    }else{
+                        $result[] = array(
+                            "partion" => '/boot',
+                            "avail" => '0',
+                            "total" => '0',
+                            "percent" =>'0'
+                        );
+                    }
+
                     break;
                 case "/dev/shm":
-                    $result[] = array(  "partion" => $hardDiskInfo['/dev/shm']->Partion,
-                        "avail" => $format::formatDiskText($hardDiskInfo['/dev/shm']->DiskAvail),
-                        "total" => $format::formatDiskText($hardDiskInfo['/dev/shm']->DiskTotal),
-                        "percent" => $format::formatPercentage($hardDiskInfo['/dev/shm']->DiskPercent)
-                    );
+                    if(isset($hardDiskInfo['/dev/shm'])){
+                        $result[] = array(  "partion" => $hardDiskInfo['/dev/shm']->Partion,
+                            "avail" => $format::formatDiskText($hardDiskInfo['/dev/shm']->DiskAvail),
+                            "total" => $format::formatDiskText($hardDiskInfo['/dev/shm']->DiskTotal),
+                            "percent" => $format::formatPercentage($hardDiskInfo['/dev/shm']->DiskPercent)
+                        );
+                    }else{
+                        $result[] = array(
+                            "partion" => '/dev/shm',
+                            "avail" => '0',
+                            "total" => '0',
+                            "percent" =>'0'
+                        );
+                    }
+
                     break;
                 case "/usr/donica/update":
-                    $result[] = array(  "partion" => $hardDiskInfo['/usr/donica/update']->Partion,
-                        "avail" => $format::formatDiskText($hardDiskInfo['/usr/donica/update']->DiskAvail),
-                        "total" => $format::formatDiskText($hardDiskInfo['/usr/donica/update']->DiskTotal),
-                        "percent" => $format::formatPercentage($hardDiskInfo['/usr/donica/update']->DiskPercent)
-                    );
+                    if(isset($hardDiskInfo['/usr/donica/update'])){
+                        $result[] = array(  "partion" => $hardDiskInfo['/usr/donica/update']->Partion,
+                            "avail" => $format::formatDiskText($hardDiskInfo['/usr/donica/update']->DiskAvail),
+                            "total" => $format::formatDiskText($hardDiskInfo['/usr/donica/update']->DiskTotal),
+                            "percent" => $format::formatPercentage($hardDiskInfo['/usr/donica/update']->DiskPercent)
+                        );
+                    }else{
+                        $result[] = array(
+                            "partion" => '/usr/donica/update',
+                            "avail" => '0',
+                            "total" => '0',
+                            "percent" =>'0'
+                        );
+                    }
+
                     break;
                 case "/opt/lampp/htdocs/files/program0":
-                    $result[] = array(  "partion" => $hardDiskInfo['/opt/lampp/htdocs/files/program0']->Partion,
-                        "avail" => $format::formatDiskText($hardDiskInfo['/opt/lampp/htdocs/files/program0']->DiskAvail),
-                        "total" => $format::formatDiskText($hardDiskInfo['/opt/lampp/htdocs/files/program0']->DiskTotal),
-                        "percent" => $format::formatPercentage($hardDiskInfo['/opt/lampp/htdocs/files/program0']->DiskPercent)
-                    );
+                    if($hardDiskInfo['/opt/lampp/htdocs/files/program0']){
+                        $result[] = array(  "partion" => $hardDiskInfo['/opt/lampp/htdocs/files/program0']->Partion,
+                            "avail" => $format::formatDiskText($hardDiskInfo['/opt/lampp/htdocs/files/program0']->DiskAvail),
+                            "total" => $format::formatDiskText($hardDiskInfo['/opt/lampp/htdocs/files/program0']->DiskTotal),
+                            "percent" => $format::formatPercentage($hardDiskInfo['/opt/lampp/htdocs/files/program0']->DiskPercent)
+                        );
+                    }else{
+                        $result[] = array(
+                            "partion" => '/opt/lampp/htdocs/files/program0',
+                            "avail" => '0',
+                            "total" => '0',
+                            "percent" =>'0'
+                        );
+                    }
+
                     break;
                 case "/opt/lampp/htdocs/epg":
-                    $result[] = array(  "partion" => $hardDiskInfo['/opt/lampp/htdocs/epg']->Partion,
-                        "avail" => $format::formatDiskText($hardDiskInfo['/opt/lampp/htdocs/epg']->DiskAvail),
-                        "total" => $format::formatDiskText($hardDiskInfo['/opt/lampp/htdocs/epg']->DiskTotal),
-                        "percent" => $format::formatPercentage($hardDiskInfo['/opt/lampp/htdocs/epg']->DiskPercent)
-                    );
+                    if($hardDiskInfo['/opt/lampp/htdocs/epg']){
+                        $result[] = array(  "partion" => $hardDiskInfo['/opt/lampp/htdocs/epg']->Partion,
+                            "avail" => $format::formatDiskText($hardDiskInfo['/opt/lampp/htdocs/epg']->DiskAvail),
+                            "total" => $format::formatDiskText($hardDiskInfo['/opt/lampp/htdocs/epg']->DiskTotal),
+                            "percent" => $format::formatPercentage($hardDiskInfo['/opt/lampp/htdocs/epg']->DiskPercent)
+                        );
+                    }else{
+                        $result[] = array(
+                            "partion" => '/opt/lampp/htdocs/epg',
+                            "avail" => '0',
+                            "total" => '0',
+                            "percent" =>'0'
+                        );
+                    }
                     break;
                 default:
                     $result = '';
@@ -186,32 +272,70 @@ class Device extends Model
             switch ($key)
             {
                 case "4-1-1":
-                    $result["CMD"] = $format::formatState($applicationInfo["4-1-1"]->ParamValue);
-                    $result["CMD_status"] = $format::formatAppStatus($applicationInfo["4-1-1"]->ParamValue);
+                    if(isset($applicationInfo["4-1-1"])){
+                        $result["CMD"] = $format::formatState($applicationInfo["4-1-1"]->ParamValue);
+                        $result["CMD_status"] = $format::formatAppStatus($applicationInfo["4-1-1"]->ParamValue);
+                    }else{
+                        $result["CMD"] = 'N/A';
+                        $result["CMD_status"] = 'N/A';
+                    }
                     break;
                 case "4-1-2":
-                    $result["cmd__run_time"] = $format::formatTime($applicationInfo["4-1-2"]->ParamValue);
+                    if(isset($applicationInfo["4-1-2"])){
+                        $result["cmd__run_time"] = $format::formatTime($applicationInfo["4-1-2"]->ParamValue);
+                    }else{
+                        $result["cmd__run_time"]= 'N/A';
+                    }
+
                     break;
                 case "4-2-1":
-                    $result["CMA"] = $format::formatState($applicationInfo["4-2-1"]->ParamValue);
-                    $result["CMA_status"] = $format::formatAppStatus($applicationInfo["4-2-1"]->ParamValue);
+                    if(isset($applicationInfo["4-2-1"])){
+                        $result["CMA"] = $format::formatState($applicationInfo["4-2-1"]->ParamValue);
+                        $result["CMA_status"] = $format::formatAppStatus($applicationInfo["4-2-1"]->ParamValue);
+                    }else{
+                        $result["CMA"] = 'N/A';
+                        $result["CMA_status"] = 'N/A';
+                    }
                     break;
                 case "4-2-2":
-                    $result["cma__run_time"] = $format::formatTime($applicationInfo["4-2-2"]->ParamValue);
+                    if(isset($applicationInfo["4-2-2"])){
+                        $result["cma__run_time"] = $format::formatTime($applicationInfo["4-2-2"]->ParamValue);
+                    }else{
+                        $result["cma__run_time"]= 'N/A';
+                    }
                     break;
                 case "4-4-1":
-                    $result["Suu"] = $format::formatState($applicationInfo["4-4-1"]->ParamValue);
-                    $result["Suu_status"] = $format::formatAppStatus($applicationInfo["4-4-1"]->ParamValue);
+                    if(isset($applicationInfo["4-4-1"])){
+                        $result["Suu"] = $format::formatState($applicationInfo["4-4-1"]->ParamValue);
+                        $result["Suu_status"] = $format::formatAppStatus($applicationInfo["4-4-1"]->ParamValue);
+                    }else{
+                        $result["Suu"] = 'N/A';
+                        $result["Suu_status"] ='N/A';
+                    }
                     break;
                 case "4-4-2":
-                    $result["suu__run_time"] = $format::formatTime($applicationInfo["4-4-2"]->ParamValue);
+                    if(isset($applicationInfo["4-4-2"])){
+                        $result["suu__run_time"] = $format::formatTime($applicationInfo["4-4-2"]->ParamValue);
+                    }else{
+                        $result["suu__run_time"] = 'N/A';
+                    }
                     break;
                 case "4-7-1":
-                    $result["Arinc"] = $format::formatState($applicationInfo["4-7-1"]->ParamValue);
-                    $result["Arinc_status"] = $format::formatAppStatus($applicationInfo["4-7-1"]->ParamValue);
+                    if(isset($applicationInfo["4-7-1"])){
+                        $result["Arinc"] = $format::formatState($applicationInfo["4-7-1"]->ParamValue);
+                        $result["Arinc_status"] = $format::formatAppStatus($applicationInfo["4-7-1"]->ParamValue);
+                    }else{
+                        $result["Arinc"] ='N/A';
+                        $result["Arinc_status"] = 'N/A';
+                    }
                     break;
                 case "4-7-2":
-                    $result["arinc__run_time"] = $format::formatTime($applicationInfo["4-7-2"]->ParamValue);
+                    if(isset($applicationInfo["4-7-2"])){
+                        $result["arinc__run_time"] = $format::formatTime($applicationInfo["4-7-2"]->ParamValue);
+                    }else{
+                        $result["arinc__run_time"] = 'N/A';
+                    }
+
                     break;
                 default:
                     $result = '';
