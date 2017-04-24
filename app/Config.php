@@ -215,8 +215,14 @@ class Config extends Model
      */
     public function getOnlineUsers()
     {
-        $dash_info = $users = DB::table('oam_dashboard_info')->where('Name', 'OnlineUsers')->first();
-        return $dash_info->Value;
+
+        if($this->getPublicStatus('WiFiSwitch')){
+            $dash_info = $users = DB::table('oam_dashboard_info')->where('Name', 'OnlineUsers')->first();
+            return $dash_info->Value;
+        }else{
+            return 0;
+        }
+
     }
 
 

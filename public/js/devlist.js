@@ -2,7 +2,7 @@ $(function(){
     setInterval(function(){
         console.log("reload");
 		window.location.reload();
-    }, 30000);
+    }, 15000);
 });
 
 function showDevice(mac){
