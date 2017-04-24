@@ -14,10 +14,10 @@ function showSearchForm(){
 	    type: 1,
 	    shade: [0.5, "#000"],
 	    shadeClose: true,
-	    area: ['800px', '315px'],
-	    title: Trans.t("查询条件"),
+	    area: ['800px', '360px'],
+	    title: "查询条件",
 	    content: $('#searchForm'),
-	    btn:[Trans.t("查询"), Trans.t("取消")],
+	    btn:["查询", "取消"],
 	    btn1:function(index){
 	    	if(!validateField($("#start_time"), "datetime")){
 	    		return false;
@@ -28,7 +28,7 @@ function showSearchForm(){
 	    	}
 	    	
 	    	if($("#start_time").val() > $("#end_time").val()){
-	    		showFieldError(Trans.t("开始时间不能晚于结束时间"), $("#end_time"));
+	    		showFieldError("开始时间不能晚于结束时间", $("#end_time"));
 	    		return false;
 	    	}
 	    	

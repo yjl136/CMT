@@ -151,7 +151,7 @@ class MaintenanceController extends Controller
     public function operateLog($content='',$start_time='',$end_time=''){
         $syslog = new Syslog;
         $operateList = $syslog->getOperatePaginateData($content,$start_time,$end_time);
-        return view('syslog.operateLog',compact('operateList'));
+        return view('userMaintenance.operateLog',compact('operateList'));
     }
 
     /**
@@ -174,7 +174,7 @@ class MaintenanceController extends Controller
     public function alarmLog($dev_type='', $alarm_level='', $clear_status='', $start_time='', $end_time=''){
         $syslog = new Syslog;
         $alarmLogList = $syslog->getAlarmLogPaginateData($dev_type, $alarm_level, $clear_status, $start_time, $end_time);
-        return view('syslog.alarmLog',compact('alarmLogList'));
+        return view('userMaintenance.alarmLog',compact('alarmLogList'));
     }
 
 
@@ -185,7 +185,7 @@ class MaintenanceController extends Controller
     public function runningLog($dev_type='',$start_time='',$end_time=''){
         $syslog = new Syslog;
         $runningList = $syslog->getRunningPaginateData($dev_type,$start_time,$end_time);
-        return view('syslog.runningLog',compact('runningList'));
+        return view('userMaintenance.runningLog',compact('runningList'));
     }
 
 

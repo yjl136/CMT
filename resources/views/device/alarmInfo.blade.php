@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <title>{{trans('空中娱乐管理系统')}}</title>
     <link rel="shortcut icon" href="{{asset('img/logos/csa/favicon.ico')}}" />
+    <link rel="shortcut icon" href="{{asset('img/logos')}}/{{config('app.airline_company')}}/{{'favicon.ico'}}" />
     <link type="text/css" rel="stylesheet" href="{{ asset('/css/base.css') }}"/>
-    <link type="text/css" rel="stylesheet" href="{{ asset('/css/detail.css') }}"/>
-    <link type="text/css" rel="stylesheet" href="{{ asset('/css/monitor.css') }}"/>
+    <link type="text/css" rel="stylesheet" href="{{ asset('/css/home.css') }}"/>
+    <link type="text/css" rel="stylesheet" href="{{ asset('/css/config.css') }}"/>
+    <link type="text/css" rel="stylesheet" href="{{ asset('/css/system.css') }}"/>
     <link type="text/css" rel="stylesheet" href="{{asset('')}}{{ config('app.theme')}}/{{'/css/sys.css' }}"/>
+    <link type="text/css" rel="stylesheet" href="{{asset('')}}{{ config('app.theme')}}/{{'/css/monitor.css' }}"/>
+    <link type="text/css" rel="stylesheet" href="{{asset('/keyboard/css/keyboard.css') }}"/>
 </head>
 <body class="mainbody">
 <div class="main">
@@ -97,8 +101,44 @@
         </div>
     </div>
 
+    <div id="searchForm" class="hidden">
+        <div class="Screening mtop10">
+            <ul>
+                <li id="dev_type">
+                    <label>设备：</label>
+                    <a href="#" class="on"><i class="checkbox_on" id="-1"></i>全部</a>
+                    <a href="#" class="on"><i class="checkbox" id="4"></i>Server</a>
+                    <a href="#" class="on"><i class="checkbox" id="15"></i>CAP</a>
+                </li>
+                <li id="alarm_level">
+                    <label>级别：</label>
+                    <a href="#" class="on"><i class="checkbox_on" id="-1"></i>全部</a>
+                    <a href="#" class="on"><i class="checkbox" id="0"></i>信息</a>
+                    <a href="#" class="on"><i class="checkbox" id="1"></i>告警</a>
+                    <a href="#" class="on"><i class="checkbox" id="2"></i>错误</a>
+                </li>
+                <li id="clear_status">
+                    <label>状态：</label>
+                    <a href="#" class="on"><i class="checkbox_on" id="-1"></i>全部</a>
+                    <a href="#" class="on"><i class="checkbox" id="0"></i>当前告警</a>
+                    <a href="#" class="on"><i class="checkbox" id="1"></i>历时告警</a>
+                </li>
+                <li>
+                    <label>时间：</label>
+                    <input id="start_time" type="text" class="ipt" value="" onclick="clearError();showKeyboard(this, 20, 'all', '-1')" placeholder="请输入开始时间">
+                    至
+                    <input id="end_time" type="text" class="ipt" value="" onclick="clearError();showKeyboard(this, 20, 'all', '-1')" placeholder="请输入结束时间">
+                </li>
+            </ul>
+        </div>
+    </div>
+    @include('common.keyboard')
 </div>
 <script type="text/javascript" src="{{ asset('/widget/jquery-3.1.1.min.js') }}"></script>
 <script type="text/javascript" src='{{asset('/widget/jquery.i18n.properties.js')}}'></script>
+<script type="text/javascript" src="{{ asset('/layer/layer.js') }}"></script>
+<script type="text/javascript" src='{{asset('/js/validator.js')}}'></script>
+<script type="text/javascript" src="{{asset('/keyboard/js/keyboard.js')}}"></script>
+<script type="text/javascript" src="{{asset('/js/alarm.js')}}"></script>
 </body>
 </html>

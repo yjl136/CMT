@@ -20,7 +20,7 @@
              <li class=""><a href="{{url('bite')}}">{{trans('menu.Bite')}}</a></li>
              <li class=""><a href="{{url('sysUpgrade')}}">{{trans('menu.SysUpgrade')}}</a></li>
              <li class=""><a href="{{url('devUpgrade')}}">{{trans('menu.DevUpgrade')}}</a></li>
-             <li class=""><a href="{{url('sysBackup')}}">{{trans('menu.SysBackup')}}</a></li>
+          {{--   <li class=""><a href="{{url('sysBackup')}}">{{trans('menu.SysBackup')}}</a></li>--}}
              <li class=""><a href="{{url('progUpdate')}}">{{trans('menu.ProUpdate')}}</a></li>
              <li class="on"><a href="{{url('dataExport')}}">{{trans('menu.Export')}}</a></li>
              <li class=""><a href="{{url('sysTest')}}">{{trans('menu.Test')}}</a></li>

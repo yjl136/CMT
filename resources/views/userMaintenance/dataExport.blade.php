@@ -18,7 +18,7 @@
 		<ul>
 			<li class=""><a href="{{url('maintenance/bite')}}">{{trans('menu.Bite')}}</a></li>
 			<li class=""><a href="{{url('maintenance/sysUpgrade')}}">{{trans('menu.SysUpgrade')}}</a></li>
-			<li class=""><a href="{{url('maintenance/sysBackup')}}">{{trans('menu.SysBackup')}}</a></li>
+			{{--<li class=""><a href="{{url('maintenance/sysBackup')}}">{{trans('menu.SysBackup')}}</a></li>--}}
 			<li class=""><a href="{{url('maintenance/progUpdate')}}">{{trans('menu.ProUpdate')}}</a></li>
 			<li class="on"><a href="{{url('maintenance/dataExport')}}">{{trans('menu.Export')}}</a></li>
 			<li class=""><a href="{{url('maintenance/sysTest')}}">{{trans('menu.Test')}}</a></li>

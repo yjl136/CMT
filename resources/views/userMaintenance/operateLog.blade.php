@@ -69,6 +69,8 @@
             </ul>
         </div>
     </div>
+
+
     @include('common.keyboard')
 @stop
 
