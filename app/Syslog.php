@@ -80,7 +80,7 @@ class Syslog extends Model
                     ->where('oam_alarmmessage.AlarmLevel', $alarm_level_op, $alarm_level)
                     ->where('oam_alarmmessage.ClearFlag', $clear_status_op, $clear_status)
                     ->orderBy('oam_alarmmessage.AlarmOccurTime', 'desc')
-                    ->paginate(8);
+                   ->paginate(8);
             } else {
                 $result = DB::table('oam_alarmmessage')
                     ->join('oam_device', 'oam_alarmmessage.DeviceID', '=', 'oam_device.DevID')
@@ -93,7 +93,6 @@ class Syslog extends Model
                     ->orderBy('oam_alarmmessage.AlarmOccurTime', 'desc')
                     ->paginate(8);
             }
-
         } else {
             $result = DB::table('oam_alarmmessage')
                 ->join('oam_device', 'oam_alarmmessage.DeviceID', '=', 'oam_device.DevID')
@@ -102,6 +101,7 @@ class Syslog extends Model
                 ->orderBy('oam_alarmmessage.AlarmOccurTime', 'desc')
                 ->paginate(8);
         }
+
         return $result;
     }
 

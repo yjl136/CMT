@@ -46,7 +46,8 @@
         </table>
 
         <div class="mtop15">
-            {{ $dialList->links() }}
+           {{ $dialList->links() }}
+
         </div>
     </div>
     @include('common.keyboard')
