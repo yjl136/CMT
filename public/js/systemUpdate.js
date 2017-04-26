@@ -20,6 +20,7 @@ function init(){
 	showProgress(0);
 	changeStep(1);
 	return false;
+
 }
 
 var loading_dialog = null;
@@ -34,16 +35,14 @@ function checkTransWay(){
 		dataType : "json",
 		success : function(data) {
 			console.log(data);
+
 			if(data["code"] == "1"){//检测传输通道成功
 				//查询更新
 				setTimeout(function(){querySysUpdate();}, 500);
 			}else{
 				layer.close(loading_dialog);
-
 				hideAllBox();
-
 				showMsg(data["msg"], "error");
-
 			}
 		}
 	});

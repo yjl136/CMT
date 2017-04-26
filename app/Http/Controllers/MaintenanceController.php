@@ -205,6 +205,23 @@ class MaintenanceController extends Controller
     public function version() {
         $system = new System;
         $versionInfo = $system->getVersionInfo();
+        $devnumber='N/A';
+        if (file_exists (Consts::APP_CONFIG_XML )) {
+            $xml=simplexml_load_file(Consts::APP_CONFIG_XML);
+            $result = $xml->xpath('cnsuserialnumber');
+            $devnumber = array_shift ($result);
+            if(empty($devnumber)){
+                $devnumber='N/A';
+            }
+        }else{
+            $devnumber='N/A';
+        }
+        foreach($versionInfo as $version){
+            if($version->Name === 'Server'){
+                $version->DevNumber = $devnumber;
+            }
+        }
+
         return view('userMaintenance.version',compact('versionInfo'));
     }
 

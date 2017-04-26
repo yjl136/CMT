@@ -428,6 +428,17 @@ class Device extends Model
                 ->where('ParamID', '=', $type)
                 ->orderBy('CreateTime', 'desc')
                 ->first();
+
+        }
+        return $result;
+    }
+
+    public  function getParamValue($data){
+        $result = 'N/A';
+        if(isset($data)){
+            $result=$data->ParamValue;
+        }else{
+            $result = 'N/A';
         }
         return $result;
     }
@@ -439,89 +450,106 @@ class Device extends Model
         if ($capPosition == '0-ap-1'){
             $result[] = array(
                 "name" => '2.4G_SSID',
-                "value" => $data['15-1-65']->ParamValue
+                "value" => $this->getParamValue($data['15-1-65'])
+
             );
             $result[] = array(
                 "name" => '5G_SSID',
-                "value" => $data['15-1-66']->ParamValue
+                "value" =>$this->getParamValue($data['15-1-66'])
             );
             $result[] = array(
                 "name" => 'cap在线人数',
-                "value" => $data['15-1-69']->ParamValue
+                "value" =>$this->getParamValue($data['15-1-69'])
             );
             $result[] = array(
                 "name" => 'CAP的2.4G频段在线人数',
-                "value" => $data['15-1-70']->ParamValue
+                "value" => $this->getParamValue($data['15-1-70'])
             );
             $result[] = array(
                 "name" => 'CAP的5G频段在线人数',
-                "value" => $data['15-1-71']->ParamValue
+                "value" =>$this->getParamValue($data['15-1-71'])
             );
             $result[] = array(
                 "name" => 'cap接收流量',
-                "value" => $format::formatBytes($data['15-1-73']->ParamValue)
+               //"value" => $format::formatBytes($data['15-1-73']->ParamValue)
+               "value" => $format::formatBytes($this->getParamValue($data['15-1-73']))
             );
             $result[] = array(
                 "name" => 'cap发送流量',
-                "value" => $format::formatBytes($data['15-1-77']->ParamValue)
+                //"value" => $format::formatBytes($data['15-1-77']->ParamValue)
+                "value" => $format::formatBytes($this->getParamValue($data['15-1-77']))
             );
         }elseif ($capPosition == '0-ap-2'){
             $result[] = array(
                 "name" => '2.4G_SSID',
-                "value" => $data['15-2-65']->ParamValue
+               // "value" => $data['15-2-65']->ParamValue
+                "value" =>$this->getParamValue($data['15-2-65'])
             );
             $result[] = array(
                 "name" => '5G_SSID',
-                "value" => $data['15-2-66']->ParamValue
+                //"value" => $data['15-2-66']->ParamValue
+                "value" => $this->getParamValue($data['15-2-66'])
             );
             $result[] = array(
                 "name" => 'cap在线人数',
-                "value" => $data['15-2-69']->ParamValue
+                //"value" => $data['15-2-69']->ParamValue
+                "value" => $this->getParamValue($data['15-2-69'])
             );
             $result[] = array(
                 "name" => 'CAP的2.4G频段在线人数',
-                "value" => $data['15-2-70']->ParamValue
+               // "value" => $data['15-2-70']->ParamValue
+                "value" => $this->getParamValue($data['15-2-70'])
             );
             $result[] = array(
                 "name" => 'CAP的5G频段在线人数',
-                "value" => $data['15-2-71']->ParamValue
+               // "value" => $data['15-2-71']->ParamValue
+                "value" => $this->getParamValue($data['15-2-71'])
             );
             $result[] = array(
                 "name" => 'cap接收流量',
-                "value" => $format::formatBytes($data['15-2-73']->ParamValue)
+              //  "value" => $format::formatBytes($data['15-2-73']->ParamValue)
+                "value" => $format::formatBytes($this->getParamValue($data['15-2-73']))
             );
             $result[] = array(
                 "name" => 'cap发送流量',
-                "value" => $format::formatBytes($data['15-2-77']->ParamValue)
+               // "value" => $format::formatBytes($data['15-2-77']->ParamValue)
+                "value" => $format::formatBytes($this->getParamValue($data['15-2-77']))
             );
         }elseif ($capPosition == '0-ap-3'){
             $result[] = array(
                 "name" => '2.4G_SSID',
-                "value" => $data['15-3-65']->ParamValue
+                //"value" => $data['15-3-65']->ParamValue
+                "value" => $this->getParamValue($data['15-3-65'])
             );
             $result[] = array(
                 "name" => '5G_SSID',
-                "value" => $data['15-3-66']->ParamValue
+               // "value" => $data['15-3-66']->ParamValue
+                "value" => $this->getParamValue($data['15-3-66'])
             );
             $result[] = array(
                 "name" => 'cap在线人数',
-                "value" => $data['15-3-69']->ParamValue
+                //"value" => $data['15-3-69']->ParamValue
+                "value" => $this->getParamValue($data['15-3-69'])
             );
             $result[] = array(
                 "name" => 'CAP的2.4G频段在线人数',
-                "value" => $data['15-3-70']->ParamValue
+                //"value" => $data['15-3-70']->ParamValue
+                "value" => $this->getParamValue($data['15-3-70'])
             );
             $result[] = array(
                 "name" => 'CAP的5G频段在线人数',
-                "value" => $data['15-3-71']->ParamValue
+                //"value" => $data['15-3-71']->ParamValue
+                "value" => $this->getParamValue($data['15-3-71'])
             );
             $result[] = array(
                 "name" => 'cap接收流量',
-                "value" => $format::formatBytes($data['15-3-73']->ParamValue)
+                //"value" => $format::formatBytes($data['15-3-73']->ParamValue)
+                "value" => $format::formatBytes($this->getParamValue($data['15-3-73']))
             );
             $result[] = array(
                 "name" => 'cap发送流量',
-                "value" => $format::formatBytes($data['15-3-77']->ParamValue)
+               // "value" => $format::formatBytes($data['15-3-77']->ParamValue)
+                "value" => $format::formatBytes($this->getParamValue($data['15-3-77']))
             );
         }else{
 

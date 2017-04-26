@@ -56,7 +56,7 @@ class DashboardController extends Controller
                 $dash_info ["time"] = Carbon::now()->timezone('Asia/Shanghai');
                 break;
         }
-        return $dash_info;
+        return $dash_info["value"];
     }
 
     /**

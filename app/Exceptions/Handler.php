@@ -45,12 +45,11 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-       /*  $debug=env('APP_DEBUG', false);
-        if($exception instanceof HttpException
-            && !$debug) {
-          return response()->headers->add(["Status Code"=>200]);
 
-        }*/
+        $debug = env('APP_DEBUG', false);
+        if(!$debug  && !$request->ajax()) {
+                return response()->redirectTo("/");
+        }
         return parent::render($request, $exception);
     }
 

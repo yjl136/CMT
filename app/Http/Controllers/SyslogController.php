@@ -33,6 +33,7 @@ class SyslogController extends Controller
      */
     public function alarmLog($dev_type='', $alarm_level='', $clear_status='', $start_time='', $end_time=''){
         $syslog = new Syslog;
+
         $alarmLogList = $syslog->getAlarmLogPaginateData($dev_type, $alarm_level, $clear_status, $start_time, $end_time);
         return view('syslog.alarmLog',compact('alarmLogList'));
     }

@@ -45,7 +45,6 @@ class IndexController extends Controller
         $log = new Syslog;
         SessionLog::log("logout>>  cmt_user_name: ".$request->session()->get('cmt_user_name')."   cmt_user_type:".$request->session()->get('cmt_user_type'));
 
-
         if (empty($request->session()->get('cmt_user_name')) || empty($request->session()->get('cmt_user_type'))) {
            // $log->saveOperation ( "User " . $request->session()->get('cmt_user_type')  . " logout", 'Server', $request->session()->get('cmt_user_name') );  // 记录操作日志
             $request->session()->flush();    //清空session中的所有数据

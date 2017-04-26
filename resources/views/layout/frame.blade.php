@@ -28,5 +28,6 @@
 <script type="text/javascript" src='{{asset('/widget/jquery.i18n.properties.js')}}'></script>
 <script type="text/javascript" src="{{ asset('/layer/layer.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/js/status.js') }}"></script>
+<script type="text/javascript" src="{{ asset('/js/language.js')}}"></script>
 @yield('footer')
 </html>
