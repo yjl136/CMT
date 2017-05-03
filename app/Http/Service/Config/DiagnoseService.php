@@ -77,10 +77,19 @@ class DiagnoseService
         $result = $this->getDashboardValue('4G');
         return $result->Value;
     }
-
+    public function get4GSwitch(){
+        $info = $users = DB::table(Consts::CMT_CONFIG)->where(
+            'var_name',  '4GSwitch'
+        )->first();
+        if ($info->var_value == '1') {
+            return $status = 1;
+        } else {
+            return $status = 0;
+        }
+    }
     public function get4GSwitchState(){
-        $result = $this->getDashboardValue('4GSwitch');
-        return $result->Value;
+        $result = $this->get4GSwitch();
+        return $result;
     }
     public function clearTroubleMessage($type){
         $sql = "UPDATE " . Consts::OAM_TROUBLE_MESSAGE . " SET Visible = 0, CreateTime = NOW()" .  " WHERE Type = ?";

@@ -80,12 +80,11 @@ return [
     |
     |
     */
-
-    'locale' => 'zh_cn',
-//    'locale' => 'en',
-//    'locale' => 'jp',
-//    'locale' => 'zh_hk',
-
+     'suoportlocale'=>[
+         'zh_CN',
+         'en_US'
+     ],
+    'locale' => 'en_US',
 
     /*
     |--------------------------------------------------------------------------

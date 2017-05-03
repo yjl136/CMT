@@ -75,6 +75,7 @@ class DeviceController extends Controller
 
     public function __construct()
     {
+        parent::__construct();
         $this->middleware(function ($request, $next) {
 
           //  SessionLog::log("device>> cmt_user_name: ".$request->session()->get('cmt_user_name')."   cmt_user_type:".$request->session()->get('cmt_user_type'));

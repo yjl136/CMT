@@ -32,10 +32,10 @@
                 <li id="transportProtocol">
                     <label>{{trans('content.Transport Protocol')}}</label>
                     @foreach($transportProtocol as $key => $value)
-                     <a href="#" class="on" ><i class="{{$value["checked"] ? "checkbox_on" : "checkbox"}}" id="{{$value["text"]}}"></i>{{$value["text"]}} </a>
+                     <a href="#" class="on" ><i class="{{$value["checked"] ? "checkbox_on" : "checkbox"}}" id="{{$value["text"]}}"></i>{{$value["text"]}}</a>
                     @endforeach
                 </li>
-                <li id="exportUrl">
+                <li id="exportUrl" >
                     <label>{{trans('IP')}}</label>
                     <input type="text" id="third_url" class="exportUrl ipt" value="{{$exportList[0]->export_url}}" onclick="showKeyboard(this, 50, 'all', '-1');"/></td>
                 </li>

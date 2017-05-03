@@ -64,4 +64,21 @@ class Configs
        $service->diagnose();
    }
 
+    /**
+     * 从xml中获取设置的语言
+     */
+    public static function getLang(){
+        if (file_exists ('config.xml')) {
+            $xml=simplexml_load_file('config.xml');
+            $langs= $xml->xpath('lang');
+            $lang = array_shift ($langs);
+            if(empty($lang)){
+                $lang='zh_CN';
+            }
+        }else{
+            $lang='zh_CN';
+        }
+        return $lang;
+    }
+
 }

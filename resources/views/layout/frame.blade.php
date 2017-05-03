@@ -25,9 +25,12 @@
 <script type="text/javascript" src="{{ asset('/widget/jquery-3.1.1.min.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/widget/vue.min.js') }}"></script>
 <script type="text/javascript" src='{{asset('/widget/axios.min.js')}}'></script>
-<script type="text/javascript" src='{{asset('/widget/jquery.i18n.properties.js')}}'></script>
+{{--<script type="text/javascript" src='{{asset('/widget/jquery.i18n.properties.js')}}'></script>--}}
 <script type="text/javascript" src="{{ asset('/layer/layer.js') }}"></script>
 <script type="text/javascript" src="{{ asset('/js/status.js') }}"></script>
-<script type="text/javascript" src="{{ asset('/js/language.js')}}"></script>
+{{--<script type="text/javascript" src="{{ asset('/js/language.js')}}"></script>--}}
+<script type="text/javascript" src="{{\App\Http\Service\Trans::getLinkJS(config('app.locale'))}}"></script>
+
+<script type="text/javascript" src="{{ asset('/js/Trans.js') }}"></script>
 @yield('footer')
 </html>

@@ -7,6 +7,16 @@ use Illuminate\Http\Request;
 
 class CommonController extends Controller
 {
+
+
+    /**
+     * CommonController constructor.
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     public function showError(Request $request) {
         $list = array();
         $type = $request->input("type");

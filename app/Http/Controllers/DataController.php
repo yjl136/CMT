@@ -95,6 +95,7 @@ class DataController extends Controller
 
     public function __construct()
     {
+        parent::__construct();
         $this->middleware(function ($request, $next) {
             if (empty($request->session()->get('cmt_user_name')) || empty($request->session()->get('cmt_user_type'))) {
                 return redirect('/');

@@ -33,7 +33,6 @@ define("STATUS_WIFISWITCH", 'WIFISWITCH'); // door status
 class Config extends Model
 {
     protected $table = 'cmt_config';
-
     /**
      * @return mixed
      * 获取一键自检的状态标识
@@ -148,11 +147,14 @@ class Config extends Model
             case STATUS_DOOR :
             case STATUS_LAN :
             case STATUS_USB :
-            case STATUS_4GSWITCH :
-            case STATUS_WIFISWITCH:
                 $status = $this->getPublicStatus($type);
                 break;
-
+            case STATUS_4GSWITCH :
+                $status = $this->get4GSwitch();
+                break;
+            case STATUS_WIFISWITCH:
+                $status = $this->getWifiSwitch();
+                break;
             case STATUS_ONLINE_USERS :
                 $status = $this->getOnlineUsers();
                 break;
@@ -164,6 +166,30 @@ class Config extends Model
                 break;
         }
         return $status;
+    }
+
+
+    public function get4GSwitch(){
+        $info = $users = DB::table(Consts::CMT_CONFIG)->where(
+            'var_name',  '4GSwitch'
+        )->first();
+        if ($info->var_value == '1') {
+            return $status = 1;
+        } else {
+            return $status = 0;
+        }
+    }
+
+
+    public function getWifiSwitch(){
+        $info = $users = DB::table(Consts::CMT_CONFIG)->where(
+            'var_name','WiFiSwitch'
+        )->first();
+        if ($info->var_value == '1') {
+            return $status = 1;
+        } else {
+            return $status = 0;
+        }
     }
 
     public function getWifiStatus()
@@ -215,8 +241,7 @@ class Config extends Model
      */
     public function getOnlineUsers()
     {
-
-        if($this->getPublicStatus('WiFiSwitch')){
+        if($this->getWifiSwitch() && $this->hasCapsOnline()){
             $dash_info = $users = DB::table('oam_dashboard_info')->where('Name', 'OnlineUsers')->first();
             return $dash_info->Value;
         }else{
@@ -224,7 +249,21 @@ class Config extends Model
         }
 
     }
-
+   public function hasCapsOnline(){
+       $status_list=$this->getCapStatus();
+       if (count ( $status_list )) {
+           $status = 0;
+           foreach ( $status_list as $device ) {
+               if ($device->DevStatus === 2) {
+                   $status = 1;
+                   break;
+               }
+           }
+       } else {
+           $status = 0;
+       }
+       return $status;
+   }
 
     /**
      * @return mixed
@@ -476,13 +515,13 @@ class Config extends Model
 
     public function getNetWorkMode(){
         $result = DB::table('cmt_config')
-            ->where('var_name', "caps_network_mode")
+            ->where('var_name', "network_mode")
             ->first();
         return $result;
     }
     public function updateNetWorkMode($mode){
         $result = DB::table('cmt_config')
-            ->where('var_name', "caps_network_mode")
+            ->where('var_name', "network_mode")
             ->update(['var_value' => $mode]);
         return $result;
       }
@@ -512,7 +551,6 @@ class Config extends Model
                 ['DevSeq' => $cap_sn1,
                     'DevModel' => $cap_em1]
             );
-
         $result[] = DB::table('cmt_version')
             ->where('DevPosition', '0-ap-2')
             ->update(

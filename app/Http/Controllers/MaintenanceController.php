@@ -227,6 +227,7 @@ class MaintenanceController extends Controller
 
     public function __construct()
     {
+        parent::__construct();
         $this->middleware(function ($request, $next) {
             SessionLog::log(">>uri: ".$request->path()."   <<cookie:  ".print_r ( $request->cookie(), true ));
             if (empty($request->session()->get('cmt_user_name')) || empty($request->session()->get('cmt_user_type'))) {

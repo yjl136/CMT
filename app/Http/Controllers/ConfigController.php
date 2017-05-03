@@ -24,6 +24,7 @@ define ( "HTTP_UPDATE_METHOD", 19 ); // http_update_method
 
 class ConfigController extends Controller
 {
+
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * 收信配置
@@ -286,6 +287,8 @@ class ConfigController extends Controller
                 return $next($request);
             }
         });
+
+
     }
 
 }
